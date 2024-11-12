@@ -45,19 +45,7 @@ const Slideshow = () => {
       {/* Overlay for White Box */}
       <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 mb-8 bg-white bg-opacity-90 px-8 py-10 rounded-lg shadow-lg max-w-6xl w-11/12">
         <form className="space-y-2">
-          {/* Upper Row: Labels */}
-          <div className="flex space-x-4">
-            <div className="w-1/3">
-              <label htmlFor="checkin" className="text-gray-700 font-semibold">
-                Check-in
-              </label>
-            </div>
-            <div className="w-1/3">
-              <label htmlFor="checkout" className="text-gray-700 font-semibold">
-                Check-out
-              </label>
-            </div>
-          </div>
+          
 
           {/* Lower Row: Input Fields */}
           <div className="flex space-x-24">
@@ -75,8 +63,8 @@ const Slideshow = () => {
                 id="nationality-select"
                 value={age}
                 onChange={handleAgeChange}
-                className="border  rounded w-full h-12 text-sm" // Tailwind height and font size classes
-                style={{ paddingTop: "3px", paddingBottom: "2px" }} // Inline style for finer padding control
+                className="border  rounded w-full h-13 text-sm " // Tailwind height and font size classes
+                 // Inline style for finer padding control
               >
                 <MenuItem value="Nationality">Select Nationality</MenuItem>
                 {nationalityOptions.map((option, index) => (
