@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { extendTheme, styled } from '@mui/material/styles';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import BarChartIcon from '@mui/icons-material/BarChart';
@@ -25,6 +26,7 @@ const NAVIGATION = [
         segment: 'book',
         title: 'Book',
         icon: <BookIcon />,
+        link: '/book',
     },
     {
         kind: 'divider',
@@ -62,12 +64,13 @@ const demoTheme = extendTheme({
 });
 
 function useDemoRouter(initialPath) {
-    const [pathname] = React.useState(initialPath);
+    const [pathname, setPathname] = React.useState(initialPath);
 
     return React.useMemo(() => {
         return {
             pathname,
             searchParams: new URLSearchParams(),
+            navigate: (path) => setPathname(path),
         };
     }, [pathname]);
 }
@@ -83,6 +86,13 @@ export default function DashboardLayoutBasic(props) {
     const { window } = props;
     const router = useDemoRouter('/dashboard');
     const demoWindow = window ? window() : undefined;
+    const navigate = useNavigate();
+
+    const handleNavigation = (link) => {
+        if (link) {
+            navigate(link);
+        }
+    };
 
     return (
         <AppProvider
