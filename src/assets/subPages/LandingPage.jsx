@@ -1,8 +1,8 @@
 // ./src/Slideshow.js
 import React, { useEffect, useState } from "react";
-import InputField from "../assets/Components/InputField";
-import room from "../assets/Lndpg_Imgs/room.jpg";
-import beach from "../assets/Lndpg_Imgs/beach.jpg";
+import InputField from "../Components/InputField.jsx";
+import room from "../img/Lndpg_Imgs/room.jpg";
+import beach from "../img/Lndpg_Imgs/beach.jpg";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
