@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { TextField, Button, Box, Typography, IconButton, InputAdornment, CircularProgress } from '@mui/material';
 import { LockOutlined, Visibility, VisibilityOff } from '@mui/icons-material';
 import { styled } from '@mui/system';
-
+import Bg from '../../../assets/img/gif/logingif.gif';
 const StyledBox = styled(Box)`
     padding: 2rem;
     background: #ffff; /* Crisp white background for the box */
@@ -27,7 +27,7 @@ const Auth = () => {
         document.body.style.minHeight = '100vh';
         document.body.style.width = '100vw';
         document.body.style.overflow = 'hidden';
-        document.body.style.backgroundImage = "url('/src/assets/gif/logingif.gif')";
+        document.body.style.backgroundImage = `url(${Bg})`;
         document.body.style.backgroundSize = 'cover';
         document.body.style.backgroundPosition = 'center';
         document.body.style.backgroundRepeat = 'no-repeat';
