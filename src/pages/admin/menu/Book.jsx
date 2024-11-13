@@ -10,6 +10,8 @@ import { TableVirtuoso } from 'react-virtuoso';
 import Chip from '@mui/material/Chip';
 import Button from '@mui/material/Button';
 import EditIcon from '@mui/icons-material/Edit';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
 
 const createData = (roomNumber, checkInDate, checkOutDate, status) => ({
     roomNumber,
