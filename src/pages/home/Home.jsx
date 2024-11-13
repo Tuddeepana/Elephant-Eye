@@ -20,6 +20,7 @@ import Yala from '../../assets/img/cardImages/yala.jpg'
 import Kataragama from '../../assets/img/cardImages/kataragama.jpg'
 import Thissamaharama from '../../assets/img/cardImages/thissamahara.jpg'
 import Bundala from '../../assets/img/cardImages/Bundala.jpg'
+import Ridiyagama from '../../assets/img/cardImages/ridiyagama.jpg'
 
 import '../../style/main.css'
 
@@ -79,7 +80,7 @@ const Home = () => {
             description: "Discover the desert beauty"
         },
         {
-            imageUrl: beach,
+            imageUrl: Ridiyagama,
             title: "Ridiyagama",
             location: "5 hours from Trincomalee",
             description: "Relax on a secluded island"
