@@ -1,8 +1,11 @@
-
+import FooterImage from '../assets/img/common/footerb.jpg'
 const Footer = () => {
     return (
         <div>
-            <section className="py-10 bg-blue-900 sm:pt-16 lg:pt-24">
+            <section
+                className="py-10 bg-blue-900 sm:pt-16 lg:pt-24"
+                style={{ backgroundImage: `url(${FooterImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+            >
                 <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-y-12 gap-x-12">
                         <div>
