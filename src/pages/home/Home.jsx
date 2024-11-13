@@ -12,6 +12,14 @@ import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
 import beach from "../../assets/img/Lndpg_Imgs/beach.jpg";
 import Reviews from "../../assets/subPages/Reviews.jsx";
+import Chinees from "../../assets/img/cardImages/chinese.jpg"
+import Srilanka from '../../assets/img/cardImages/srilanka.jpg'
+import Western from '../../assets/img/cardImages/western.jpg'
+import Kirind from '../../assets/img/cardImages/kirirnda.jpg'
+import Yala from '../../assets/img/cardImages/yala.jpg'
+import Kataragama from '../../assets/img/cardImages/kataragama.jpg'
+import Thissamaharama from '../../assets/img/cardImages/thissamahara.jpg'
+import Bundala from '../../assets/img/cardImages/Bundala.jpg'
 
 import '../../style/main.css'
 
@@ -41,38 +49,38 @@ const Home = () => {
 
     const slides = [
         {
-            imageUrl: beach,
-            title: "Beach Paradise",
+            imageUrl: Yala,
+            title: "Yala National Park",
             location: "1 hour from Nuwara Eliya",
             description: "A beautiful place to visit"
         },
         {
-            imageUrl: beach,
-            title: "Mountain Escape",
+            imageUrl: Kirind,
+            title: "Kirinda Beach",
             location: "2 hours from Kandy",
             description: "A serene mountain retreat"
         },
         {
-            imageUrl: beach,
-            title: "City Lights",
+            imageUrl: Kataragama,
+            title: "Kataragama",
             location: "In the heart of Colombo",
             description: "Experience the vibrant city life"
         },
         {
-            imageUrl: beach,
-            title: "Yala National Park",
+            imageUrl: Thissamaharama,
+            title: "Thissamaharama Temple",
             location: "3 hours from Galle",
             description: "Explore the lush forests"
         },
         {
-            imageUrl: beach,
-            title: "Thissamaharama Temple",
+            imageUrl: Bundala,
+            title: "Bundala Birds Parks",
             location: "4 hours from Jaffna",
             description: "Discover the desert beauty"
         },
         {
             imageUrl: beach,
-            title: "Tissa Wewa",
+            title: "Ridiyagama",
             location: "5 hours from Trincomalee",
             description: "Relax on a secluded island"
         },
@@ -86,20 +94,20 @@ const Home = () => {
 
     const unbeatableOffers = [
         {
-            imageUrl: beach,
-            title: "Special Beach Offer",
+            imageUrl: Srilanka,
+            title: "Sri Lankan Cuisine",
             location: "1 hour from Nuwara Eliya",
             description: "A beautiful place to visit"
         },
         {
-            imageUrl: beach,
-            title: "Mountain Retreat Deal",
+            imageUrl: Chinees,
+            title: "Chinese Meal",
             location: "2 hours from Kandy",
             description: "A serene mountain retreat"
         },
         {
-            imageUrl: beach,
-            title: "City Lights Discount",
+            imageUrl: Western,
+            title: "Western Meals",
             location: "In the heart of Colombo",
             description: "Experience the vibrant city life"
         }
@@ -126,7 +134,7 @@ const Home = () => {
                     <HomeCover/>
                 </div>
                 {/* This is the Card component use for show hotel offers 2nd Section */}
-                <h1 className="text-center text-7xl mt-24 font-bold" style={{color: '#2a2a2a'}} >Unbeatable Offers</h1>
+                <h1 className="text-center text-7xl mt-24 font-bold" style={{color: '#2a2a2a'}} >Trunk Cafe And Restaurant</h1>
 
                 <div className="mt-8 flex justify-center">
                     <div className="w-full max-w-6xl">
@@ -213,7 +221,7 @@ const Home = () => {
                 <Footer/>
             </div>
             <a
-                href="https://wa.me/+94716520690"
+                href="https://wa.me/+94707676750"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="fixed bottom-4 right-4 bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition-all duration-300"
