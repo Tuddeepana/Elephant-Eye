@@ -1,12 +1,14 @@
-// eslint-disable-next-line no-unused-vars
+// src/pages/admin/auth/Auth.jsx
 import React, { useState, useEffect } from 'react';
 import { TextField, Button, Box, Typography, IconButton, InputAdornment, CircularProgress } from '@mui/material';
 import { LockOutlined, Visibility, VisibilityOff } from '@mui/icons-material';
 import { styled } from '@mui/system';
+import { useNavigate } from 'react-router-dom';
 import Bg from '../../../assets/img/gif/logingif.gif';
+
 const StyledBox = styled(Box)`
     padding: 2rem;
-    background: #ffff; /* Crisp white background for the box */
+    background: #ffff;
     border-radius: 8px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     border: 1px solid #ddd;
@@ -18,6 +20,11 @@ const Auth = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
+    const [credentials, setCredentials] = useState({ username: '', password: '' });
+    const navigate = useNavigate();
+
+    const users = new Map();
+    users.set('admin', 'admin');
 
     useEffect(() => {
         document.body.style.display = 'flex';
@@ -39,13 +46,22 @@ const Auth = () => {
 
     const handleClickShowPassword = () => setShowPassword((show) => !show);
 
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setCredentials({ ...credentials, [name]: value });
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
         setLoading(true);
-        // Simulate login attempt
         setTimeout(() => {
             setLoading(false);
-            setError("Invalid username or password");
+            if (users.get(credentials.username) === credentials.password) {
+                localStorage.setItem('authToken', 'your-auth-token'); // Store the auth token
+                navigate('/dashboard');
+            } else {
+                setError('Invalid username or password');
+            }
         }, 2000);
     };
 
@@ -69,6 +85,7 @@ const Auth = () => {
                     autoComplete="username"
                     autoFocus
                     error={!!error}
+                    onChange={handleChange}
                 />
                 <TextField
                     variant="outlined"
@@ -82,6 +99,7 @@ const Auth = () => {
                     autoComplete="current-password"
                     error={!!error}
                     helperText={error && "Please check your username and password"}
+                    onChange={handleChange}
                     InputProps={{
                         endAdornment: (
                             <InputAdornment position="end">

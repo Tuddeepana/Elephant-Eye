@@ -26,6 +26,8 @@
     "react-background-slider": "^4.0.0",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.28.0",
+    "react-slick": "^0.30.2",
+    "slick-carousel": "^1.8.1",
     "styled-components": "^6.1.13"
   },
   "devDependencies": {
