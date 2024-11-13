@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React from "react";
 import Footer from "../../utils/Footer.jsx";
 import LandingPage from "../../assets/subPages/LandingPage.jsx";
@@ -83,6 +84,27 @@ const Home = () => {
         }
     ];
 
+    const unbeatableOffers = [
+        {
+            imageUrl: beach,
+            title: "Special Beach Offer",
+            location: "1 hour from Nuwara Eliya",
+            description: "A beautiful place to visit"
+        },
+        {
+            imageUrl: beach,
+            title: "Mountain Retreat Deal",
+            location: "2 hours from Kandy",
+            description: "A serene mountain retreat"
+        },
+        {
+            imageUrl: beach,
+            title: "City Lights Discount",
+            location: "In the heart of Colombo",
+            description: "Experience the vibrant city life"
+        }
+    ];
+
     return (
         <>
             <div>
@@ -110,7 +132,7 @@ const Home = () => {
                     <div className="w-full max-w-6xl">
                         <div className="block md:hidden">
                             <Slider {...settings}>
-                                {slides.slice(0, 3).map((slide, index) => (
+                                {unbeatableOffers.map((slide, index) => (
                                     <Card
                                         key={index}
                                         imageUrl={slide.imageUrl}
@@ -122,7 +144,7 @@ const Home = () => {
                             </Slider>
                         </div>
                         <div className="hidden md:flex justify-between space-x-4">
-                            {slides.slice(0, 3).map((slide, index) => (
+                            {unbeatableOffers.map((slide, index) => (
                                 <Card
                                     key={index}
                                     imageUrl={slide.imageUrl}
@@ -135,6 +157,7 @@ const Home = () => {
                     </div>
                 </div>
                 {/* This is the Reviews component use for show hotel reviews 3rd Section */}
+
                 <h1 className="text-center text-7xl mt-24 font-bold" style={{color: '#2a2a2a'}} >Conventional Location</h1>
                 <div className="mt-8 flex justify-center">
                     <div className="w-full max-w-6xl">
@@ -175,13 +198,18 @@ const Home = () => {
                                 ))}
                             </div>
                         </div>
+                        <CenteredLine/>
                     </div>
                 </div>
-                <Reviews/>
 
-                <CenteredLine/>
+                {/* This is the Reviews component use for show hotel reviews 4th Section */}
+                <div className='mt-24'>
+                <Reviews/>
+                </div>
+
+
             </div>
-            <div className="mt-2.5">
+            <div className="">
                 <Footer/>
             </div>
             <a

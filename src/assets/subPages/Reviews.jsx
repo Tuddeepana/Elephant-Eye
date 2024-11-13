@@ -3,6 +3,7 @@ import React from 'react';
 import { Card, CardContent, CardMedia, Typography, Grid, Box, Container } from '@mui/material';
 import { Rating } from '@mui/material';
 import Hotelcover from "../img/common/common.jpg";
+import '../../style/main.css';
 
 const reviews = [
     {
@@ -35,16 +36,13 @@ const ReviewCard = ({ review }) => (
             sx={{ borderRadius: '50%', width: '140px', height: '140px', margin: '0 auto' }}
         />
         <CardContent>
-            <Typography variant="body2" color="text.secondary" sx={{ margin: '1em 0' }}>
-                {/* eslint-disable-next-line react/prop-types */}
+            <Typography variant="body2" color="text.secondary" sx={{ margin: '1em 0', fontSize: '1.2rem' }}>
                 {review.comment}
             </Typography>
             <Typography variant="subtitle1" sx={{ fontWeight: 'bold' }}>
-                {/* eslint-disable-next-line react/prop-types */}
                 {review.name}
             </Typography>
             <Box mt={1}>
-                {/* eslint-disable-next-line react/prop-types */}
                 <Rating value={review.rating} readOnly />
             </Box>
         </CardContent>
@@ -54,9 +52,8 @@ const ReviewCard = ({ review }) => (
 const Reviews = () => {
     return (
         <Container maxWidth={false} sx={{ padding: '4em 0', backgroundColor: '#f0f4f8', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <Typography variant="h4" align="center" gutterBottom sx={{ fontWeight: 'bold', backgroundColor: '#333', color: '#fff', display: 'inline-block', padding: '0.5em 1em', borderRadius: '5px' }}>
-                Guest Reviews
-            </Typography>
+
+            <h1 className='text-6xl'>Guest Reviews</h1>
             <Grid container spacing={4} sx={{ marginTop: '2em' }}>
                 {reviews.map((review, index) => (
                     <Grid item xs={12} sm={6} md={4} key={index}>
