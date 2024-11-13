@@ -6,6 +6,7 @@ import CenteredLine from "../../assets/Components/Divider/CenteredLine.jsx";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
 import beach from "../../assets/img/Lndpg_Imgs/beach.jpg";
 
@@ -95,16 +96,24 @@ const Home = () => {
                                 description="Experience the vibrant city life"
                             />
                         </div>
+                        <h1 className="text-center text-6xl mt-24">Luxury Stay</h1>
                     </div>
                 </div>
-                <CenteredLine />
+                <CenteredLine/>
             </div>
             <div className="mt-2.5">
                 <Footer/>
             </div>
+            <a
+                href="https://wa.me/yourwhatsappnumber"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="fixed bottom-4 right-4 bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition-all duration-300"
+            >
+                <WhatsAppIcon />
+            </a>
         </>
     );
 };
 
 export default Home;
-
