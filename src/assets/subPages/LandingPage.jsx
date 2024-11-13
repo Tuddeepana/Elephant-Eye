@@ -72,7 +72,7 @@ const Slideshow = () => {
                       onChange={handleAgeChange}
                       className="border  rounded w-full h-13 text-sm "
                   >
-                    <MenuItem value="Nationality">Select Nationality</MenuItem>
+                    <MenuItem value="" disabled>Select Nationality</MenuItem>
                     {nationalityOptions.map((option, index) => (
                         <MenuItem key={index} value={option}>
                           {option}

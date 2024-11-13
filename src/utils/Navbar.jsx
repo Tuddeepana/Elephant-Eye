@@ -38,8 +38,8 @@ const Navbar = () => {
                 </button>
 
                 <div className={`hidden lg:flex space-x-6 text-xl`}>
-                    <a href="#rooms" className="hover:text-yellow-500">Rooms</a>
-                    <a href="#offers" className="hover:text-yellow-500">Offers</a>
+                    <a href="#rooms" className="hover:text-yellow-500">Home</a>
+                    <a href="#offers" className="hover:text-yellow-500">Rooms</a>
                 </div>
 
                 <div className="flex-1 flex justify-center">
@@ -69,8 +69,8 @@ const Navbar = () => {
 
             {isOpen && (
                 <div className="lg:hidden mt-4 text-center py-4 rounded-lg space-y-4 text-xl">
-                    <a href="#rooms" className="block hover:text-gray-200">Rooms</a>
-                    <a href="#offers" className="block hover:text-gray-200">Offers</a>
+                    <a href="#rooms" className="block hover:text-gray-200">Home</a>
+                    <a href="#offers" className="block hover:text-gray-200">Rooms</a>
 
                     <a href="#experiences" className="block hover:text-gray-200">Experiences</a>
                     <a href="#contact" className="block hover:text-gray-200">Contact Us</a>

@@ -1,93 +1,94 @@
 import * as React from 'react';
-import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
-import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+import { TableVirtuoso } from 'react-virtuoso';
+import Chip from '@mui/material/Chip';
 import Button from '@mui/material/Button';
 import EditIcon from '@mui/icons-material/Edit';
-import Chip from '@mui/material/Chip';
 
-const columns = [
-    { id: 'roomNumber', label: 'Room Number', minWidth: 170 },
-    { id: 'date', label: 'Date', minWidth: 170 },
-    { id: 'status', label: 'Status', minWidth: 170 },
-    { id: 'action', label: 'Action', minWidth: 170 },
-];
-
-const createData = (roomNumber, date, status) => ({
+const createData = (roomNumber, checkInDate, checkOutDate, status) => ({
     roomNumber,
-    date,
-    status: <Chip label={status} color={status === 'Booked' ? 'success' : 'info'} />,
-    action: <EditIcon />
+    checkInDate,
+    checkOutDate,
+    status: <Chip label={status} color={status === 'Booked' ? 'success' : status === 'Available' ? 'info' : 'error'} />,
+    action: <Button variant="contained"><EditIcon /></Button>
 });
 
-const rows = [
-    createData('101', '2023-10-01', 'Booked'),
-    createData('102', '2023-10-02', 'Available'),
-    createData('103', '2023-10-03', 'Booked'),
-    createData('104', '2023-10-04', 'Available'),
-    createData('105', '2023-10-05', 'Booked'),
+const columns = [
+    { width: 100, label: 'Room No', dataKey: 'roomNumber' },
+    { width: 150, label: 'Check-in Date', dataKey: 'checkInDate' },
+    { width: 150, label: 'Check-out Date', dataKey: 'checkOutDate' },
+    { width: 100, label: 'Status', dataKey: 'status' },
+    { width: 100, label: 'Action', dataKey: 'action' },
 ];
 
-export default function StickyHeadTable() {
-    const [page, setPage] = React.useState(0);
-    const [rowsPerPage, setRowsPerPage] = React.useState(10);
+const rows = [
+    createData('101', '2023-10-01', '2023-10-05', 'Booked'),
+    createData('102', '2023-10-02', '2023-10-06', 'Available'),
+    createData('103', '2023-10-03', '2023-10-07', 'Booked'),
+    createData('104', '2023-10-04', '2023-10-08', 'Available'),
+    createData('105', '2023-10-05', '2023-10-09', 'Booked'),
+    createData('106', '2023-10-06', '2023-10-10', 'Repair'),
+];
 
-    const handleChangePage = (event, newPage) => {
-        setPage(newPage);
-    };
+const VirtuosoTableComponents = {
+    Scroller: React.forwardRef((props, ref) => (
+        <TableContainer component={Paper} {...props} ref={ref} />
+    )),
+    Table: (props) => (
+        <Table {...props} sx={{ borderCollapse: 'separate', tableLayout: 'fixed' }} />
+    ),
+    TableHead: React.forwardRef((props, ref) => <TableHead {...props} ref={ref} />),
+    TableRow,
+    TableBody: React.forwardRef((props, ref) => <TableBody {...props} ref={ref} />),
+};
 
-    const handleChangeRowsPerPage = (event) => {
-        setRowsPerPage(+event.target.value);
-        setPage(0);
-    };
-
+function fixedHeaderContent() {
     return (
-        <Paper sx={{ width: '100%', overflow: 'hidden' }}>
-            <TableContainer sx={{ maxHeight: 440 }}>
-                <Table stickyHeader aria-label="sticky table">
-                    <TableHead>
-                        <TableRow>
-                            {columns.map((column) => (
-                                <TableCell
-                                    key={column.id}
-                                    align={column.align}
-                                    style={{ minWidth: column.minWidth, fontWeight: 'bold' }}
-                                >
-                                    {column.label}
-                                </TableCell>
-                            ))}
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => (
-                            <TableRow hover role="checkbox" tabIndex={-1} key={row.roomNumber}>
-                                {columns.map((column) => (
-                                    <TableCell key={column.id} align={column.align}>
-                                        {column.id === 'action' ? (
-                                            <Button variant="contained">{row[column.id]}</Button>
-                                        ) : (
-                                            row[column.id]
-                                        )}
-                                    </TableCell>
-                                ))}
-                            </TableRow>
-                        ))}
-                    </TableBody>
-                </Table>
-            </TableContainer>
-            <TablePagination
-                rowsPerPageOptions={[10, 25, 100]}
-                component="div"
-                count={rows.length}
-                rowsPerPage={rowsPerPage}
-                page={page}
-                onPageChange={handleChangePage}
-                onRowsPerPageChange={handleChangeRowsPerPage}
+        <TableRow>
+            {columns.map((column) => (
+                <TableCell
+                    key={column.dataKey}
+                    variant="head"
+                    align="left"
+                    style={{ width: column.width, fontWeight: 'bold' }}
+                    sx={{ backgroundColor: 'background.paper' }}
+                >
+                    {column.label}
+                </TableCell>
+            ))}
+        </TableRow>
+    );
+}
+
+function rowContent(_index, row) {
+    return (
+        <React.Fragment>
+            {columns.map((column) => (
+                <TableCell
+                    key={column.dataKey}
+                    align="left"
+                >
+                    {row[column.dataKey]}
+                </TableCell>
+            ))}
+        </React.Fragment>
+    );
+}
+
+export default function ReactVirtualizedTable() {
+    return (
+        <Paper style={{ height: 400, width: '100%' }}>
+            <TableVirtuoso
+                data={rows}
+                components={VirtuosoTableComponents}
+                fixedHeaderContent={fixedHeaderContent}
+                itemContent={rowContent}
             />
         </Paper>
     );
