@@ -22,8 +22,8 @@ import Thissamaharama from '../../assets/img/cardImages/thissamahara.jpg'
 import Bundala from '../../assets/img/cardImages/Bundala.jpg'
 import Ridiyagama from '../../assets/img/cardImages/ridiyagama.jpg'
 
-
 import '../../style/main.css'
+import RoomCategories from "../../assets/subPages/RoomCategories.jsx";
 
 const Home = () => {
     const settings = {
@@ -117,29 +117,28 @@ const Home = () => {
 
     return (
         <>
-            <div>
-                <LandingPage/>
-                {/* This Introduction page 1st Section*/}
-                <div className="flex flex-col items-center justify-center ">
-                    <h1 className="text-center text-8xl mt-24 font-bold" style={{color: '#2a2a2a'}}>Elephant Eye</h1>
+            <div className="overflow-hidden">
+                <LandingPage />
+                <RoomCategories />
+                {/* This Introduction page 1st Section */}
+                <div className="flex flex-col items-center justify-center px-4">
+                    <h1 className="text-center text-8xl mt-24 font-bold" style={{ color: '#2a2a2a' }}>Elephant Eye</h1>
                     <p className="mt-6 font-semibold text-base">Where Tranquility Embraces Elegance!</p>
                     <p className="text-center max-w-2xl mt-4 text-xl font-semibold">
-                        Experience a perfect blend of adventure and relaxation for an unforgettable stay immersed in
-                        culture
-                        and tranquility.
+                        Experience a perfect blend of adventure and relaxation for an unforgettable stay immersed in culture and tranquility.
                     </p>
-                    <h1 className="text-center text-3xl mt-16 font-bold" style={{color:'#2a2a2a'}}>-Why Book Direct with us-</h1>
+                    <h1 className="text-center text-3xl mt-16 font-bold" style={{ color: '#2a2a2a' }}>-Why Book Direct with us-</h1>
                 </div>
 
                 {/* This is the HomeCover component use for show hotel main  image dsc */}
                 <div className="mt-24">
-                    <HomeCover/>
+                    <HomeCover />
                 </div>
-                {/* This is the Card component use for show hotel offers 2nd Section */}
-                <h1 className="text-center text-7xl mt-24 font-bold" style={{color: '#2a2a2a'}} >Trunk Cafe And Restaurant</h1>
 
-                <div className="mt-8 flex justify-center">
-                    <div className="w-full max-w-6xl">
+                {/* Offers Section */}
+                <h1 className="text-center text-7xl mt-24 font-bold" style={{ color: '#2a2a2a' }}>Trunk Cafe And Restaurant</h1>
+                <div className="mt-8 flex justify-center w-full overflow-hidden">
+                    <div className="w-full max-w-full md:max-w-6xl">
                         <div className="block md:hidden">
                             <Slider {...settings}>
                                 {unbeatableOffers.map((slide, index) => (
@@ -166,11 +165,11 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
-                {/* This is the Reviews component use for show hotel reviews 3rd Section */}
 
-                <h1 className="text-center text-7xl mt-24 font-bold" style={{color: '#2a2a2a'}} >Conventional Location</h1>
-                <div className="mt-8 flex justify-center">
-                    <div className="w-full max-w-6xl">
+                {/* Conventional Location Section */}
+                <h1 className="text-center text-7xl mt-24 font-bold" style={{ color: '#2a2a2a' }}>Conventional Location</h1>
+                <div className="mt-8 flex justify-center w-full overflow-hidden">
+                    <div className="w-full max-w-full md:max-w-6xl">
                         <div className="block md:hidden">
                             <Slider {...settings}>
                                 {slides.map((slide, index) => (
@@ -208,27 +207,27 @@ const Home = () => {
                                 ))}
                             </div>
                         </div>
-                        <CenteredLine/>
+                        <CenteredLine />
                     </div>
                 </div>
 
-                {/* This is the Reviews component use for show hotel reviews 4th Section */}
+                {/*  This is the Reviews component use for show hotel reviews 4th Section  */}
                 <div className='mt-24'>
-                <Reviews/>
+                    <Reviews />
                 </div>
-
-
             </div>
-            <div className="">
-                <Footer/>
-            </div>
+
+            <Footer />
+
+            {/* WhatsApp Button */}
             <a
                 href="https://wa.me/+94707676750"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="fixed bottom-4 right-4 bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition-all duration-300"
+                style={{ maxWidth: 'calc(100% - 16px)' }}
             >
-                <WhatsAppIcon/>
+                <WhatsAppIcon />
             </a>
         </>
     );
