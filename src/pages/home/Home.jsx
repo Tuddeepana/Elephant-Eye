@@ -22,6 +22,7 @@ import Thissamaharama from '../../assets/img/cardImages/thissamahara.jpg'
 import Bundala from '../../assets/img/cardImages/Bundala.jpg'
 import Ridiyagama from '../../assets/img/cardImages/ridiyagama.jpg'
 
+
 import '../../style/main.css'
 
 const Home = () => {
