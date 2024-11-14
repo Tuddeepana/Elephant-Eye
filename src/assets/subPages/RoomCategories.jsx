@@ -21,24 +21,26 @@ const ImageSwitcher = () => {
   };
 
   return (
-    <div className="flex flex-col items-center w-full mt-10">
+    <div className="flex flex-col items-center w-full mt-10 px-4">
       {/* Room Description Section */}
-      <div className="text-center p-8">
-        <h1 className="text-5xl font-bold text-gray-800 mb-4">Discover Our Elegant Rooms</h1>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+      <div className="text-center p-4 md:p-8">
+        <h1 className="text-3xl md:text-5xl font-bold text-gray-800 mb-4">
+          Discover Our Elegant Rooms
+        </h1>
+        <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
           Each room is thoughtfully designed to provide you with unparalleled comfort and relaxation. Enjoy breathtaking views, modern amenities, and the finest hospitality in an atmosphere that blends luxury and warmth.
         </p>
       </div>
 
       {/* Navigation bar */}
-      <nav className="flex space-x-6 text-lg font-semibold mt-4">
+      <nav className="flex flex-wrap justify-center space-x-4 md:space-x-6 text-sm md:text-lg font-semibold mt-4">
         {Object.keys(images).map((key) => (
           <button
             key={key}
             onClick={() => handleNavClick(key)}
             className={`${
               activeRoom === key ? "underline" : ""
-            } hover:underline `}
+            } hover:underline`}
           >
             {key}
           </button>
@@ -46,11 +48,11 @@ const ImageSwitcher = () => {
       </nav>
 
       {/* Display selected image */}
-      <div className="w-11/12 mt-6">
+      <div className="w-full md:w-11/12 mt-6">
         <img
           src={selectedImage}
           alt="Selected hotel view"
-          className="w-full h-screen object-cover rounded-2xl"
+          className="w-full h-64 md:h-[75vh] object-cover rounded-2xl"
         />
       </div>
     </div>
