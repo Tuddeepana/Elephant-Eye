@@ -23,6 +23,7 @@ import Bundala from '../../assets/img/cardImages/Bundala.jpg'
 import Ridiyagama from '../../assets/img/cardImages/ridiyagama.jpg'
 
 import '../../style/main.css'
+import RoomCategories from "../../assets/subPages/RoomCategories.jsx";
 
 const Home = () => {
     const settings = {
@@ -118,6 +119,7 @@ const Home = () => {
         <>
             <div>
                 <LandingPage/>
+                <RoomCategories/>
                 {/* This Introduction page 1st Section*/}
                 <div className="flex flex-col items-center justify-center ">
                     <h1 className="text-center text-8xl mt-24 font-bold" style={{color: '#2a2a2a'}}>Elephant Eye</h1>
