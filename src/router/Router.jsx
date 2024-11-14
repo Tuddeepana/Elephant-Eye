@@ -7,6 +7,7 @@ import Aboutus from "../pages/about/aboutus.jsx";
 import Gallery from "../pages/gallery/gallery.jsx";
 import PrivateRoute from './PrivateRoute.jsx';
 import Book from '../pages/admin/menu/Book.jsx'
+import Rooms from "../pages/rooms/Rooms.jsx";
 
 const Router = () => {
     return (
@@ -14,6 +15,7 @@ const Router = () => {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/gallery" element={<Gallery />} />
+                <Route path="/room" element={<Rooms />} />
 
                 <Route path="/aboutus" element={<Aboutus />} />
                 <Route path="/admin" element={<Admin />} />

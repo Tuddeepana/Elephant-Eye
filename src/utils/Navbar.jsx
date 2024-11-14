@@ -57,7 +57,7 @@ const Navbar = () => {
 
                 {/* Right Links Section */}
                 <div className={`hidden lg:flex space-x-6 items-center`}>
-                    <a href="#experiences" className="hover:text-yellow-500">Experiences</a>
+                    <Link to="/gallery" className={getLinkClass("/gallery")}>Gallery</Link>
                     <Link to="/aboutus" className={getLinkClass("/aboutus")}>About us</Link>
                     <Link to="/book" className="px-4 py-2 bg-yellow-700 text-white font-semibold rounded hover:bg-yellow-800">
                         Book Now
@@ -77,7 +77,7 @@ const Navbar = () => {
                 <div className="lg:hidden mt-4 text-center py-4 rounded-lg space-y-4">
                     <Link to="/" className="block hover:text-gray-200">Home</Link>
                     <Link to="/rooms" className="block hover:text-gray-200">Rooms</Link>
-                    <a href="#experiences" className="block hover:text-gray-200">Experiences</a>
+                    <Link to="/gallery" className="block hover:text-gray-200">Gallery</Link>
                     <Link to="/aboutus" className="block hover:text-gray-200">About us</Link>
                 </div>
             )}
