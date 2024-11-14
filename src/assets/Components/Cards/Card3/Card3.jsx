@@ -1,19 +1,27 @@
-import React from "react";
 import PropTypes from "prop-types";
-import "./card.css";
+import "../Card3/card3.css";
+import Button from '@mui/material/Button';
+import HotelIcon from '@mui/icons-material/Hotel';
 
 const Card3 = ({ imageUrl, title, location, description }) => {
     return (
-        <div
-            className="relative w-full sm:w-96 h-[500px] bg-cover bg-center shadow-lg overflow-hidden group"
-            style={{ backgroundImage: `url(${imageUrl})` }}
-        >
-            <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center p-4 transition-all duration-300">
-                <h2 className="text-white text-3xl font-bold text-center transition-all group-hover:translate-y-[-100%]">{title}</h2>
-                <p className="text-gray-300 text-xl text-center transition-all group-hover:translate-y-[-100%]">{location}</p>
-                <p className="text-gray-300 text-lg mt-2 opacity-0 group-hover:opacity-100 transition-opacity text-center">
-                    {description}
-                </p>
+        <div className="relative w-full sm:w-96 h-auto bg-cover bg-center shadow-lg overflow-hidden group">
+            <div
+                className="w-full h-64 bg-cover bg-center"
+                style={{ backgroundImage: `url(${imageUrl})` }}
+            ></div>
+            <div className="p-4 bg-white">
+                <h2 className="text-black text-3xl font-bold text-left">{title}</h2>
+                <p className="text-gray-700 text-xl text-left">{location}</p>
+                <p className="text-gray-700 text-lg mt-2 text-left">{description}</p>
+                <Button
+                    variant="contained"
+                    color="primary"
+                    startIcon={<HotelIcon />}
+                    className="mt-4"
+                >
+                    Book Now
+                </Button>
             </div>
         </div>
     );

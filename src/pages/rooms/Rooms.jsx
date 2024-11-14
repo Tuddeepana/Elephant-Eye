@@ -1,8 +1,62 @@
+import React from "react";
+import Card3 from "../../assets/Components/Cards/Card3/Card3";
+import Img1 from '../../assets/img/cardImages/yala.jpg';
+import LandingPage   from "../../assets/subPages/LandingPage.jsx";
+import Footer from "../../utils/Footer.jsx";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 
 const Rooms = () => {
+    const rooms = [
+        {
+            imageUrl: Img1,
+            title: "Deluxe Room",
+            location: "1st Floor",
+            description: "A luxurious room with a beautiful view and modern amenities."
+        },
+        {
+            imageUrl:Img1,
+            title: "Standard Room",
+            location: "2nd Floor",
+            description: "A comfortable room with all the essential facilities."
+        }
+    ];
+
     return (
         <div>
-            <h1>Rooms</h1>
+            <LandingPage/>
+            <div className="flex flex-col items-center justify-center ">
+                <h1 className="text-center text-8xl mt-24 font-bold" style={{color: '#2a2a2a'}}>Rooms</h1>
+
+                <p className="text-center max-w-2xl mt-4 text-xl font-semibold">
+                    Experience a perfect blend of adventure and relaxation for an unforgettable stay immersed in
+                    culture
+                    and tranquility.
+                </p>
+            </div>
+            <div className='mt-24'>
+                <div className="flex flex-wrap justify-center gap-4">
+                    {rooms.map((room, index) => (
+                        <Card3
+                            key={index}
+                            imageUrl={room.imageUrl}
+                            title={room.title}
+                            location={room.location}
+                            description={room.description}
+                        />
+                    ))}
+                </div>
+            </div>
+            <a
+                href="https://wa.me/+94707676750"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="fixed bottom-4 right-4 bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition-all duration-300"
+            >
+                <WhatsAppIcon/>
+            </a>
+            <div className='mt-24'>
+                <Footer/>
+            </div>
 
         </div>
     );
