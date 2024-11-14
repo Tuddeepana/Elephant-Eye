@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import dayjs from "dayjs";
 import room from "../img/Lndpg_Imgs/room.jpg";
 import beach from "../img/Lndpg_Imgs/beach.jpg";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
@@ -13,7 +14,9 @@ const nationalityOptions = ["Nationality", "Sri Lankan", "Non Sri Lankan"];
 
 const Slideshow = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [nationality, setNationality] = useState("Nationality"); // Set "Nationality" as the default value
+  const [Nationality, setNationality] = useState("Nationality");
+  const [checkInDate, setCheckInDate] = useState(dayjs());
+  
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -46,7 +49,9 @@ const Slideshow = () => {
           <form className="space-y-4">
             <div className="flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-4 lg:space-x-8">
               <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DatePicker label="Check-in" />
+                <DatePicker label="Check-out"
+                      value={checkInDate}
+                      onChange={(newValue) => setCheckInDate(newValue)} />
               </LocalizationProvider>
               <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DatePicker label="Check-out" />
@@ -56,7 +61,7 @@ const Slideshow = () => {
                 <Select
                   labelId="nationality-select-label"
                   id="nationality-select"
-                  value={nationality}
+                  value={Nationality}
                   onChange={handleNationalityChange}
                   className="border rounded w-full h-13 text-sm"
                 >
@@ -80,7 +85,7 @@ const Slideshow = () => {
           </form>
         </div>
       </div>
-    </div>
+      </div>
   );
 };
 

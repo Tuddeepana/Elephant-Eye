@@ -2,25 +2,27 @@
 import React from 'react';
 import { Card, CardContent, CardMedia, Typography, Grid, Box, Container } from '@mui/material';
 import { Rating } from '@mui/material';
-import Hotelcover from "../img/common/common.jpg";
 import '../../style/main.css';
 
+import Rev1 from '../../assets/img/reviews/1.jpeg';
+import Rev2 from  '../img/reviews/2.jpeg'
+import Rev3 from  '../img/reviews/3.jpeg'
 const reviews = [
     {
         name: "Aanchal T - Bangalore, India",
-        photo: Hotelcover,
+        photo: Rev1,
         comment: "Hotel is lovely, so clean, big rooms. Very comfortable for family with kids. Heaters in room. Location is amazing, near to Gregory lake, one can walk if they can...",
         rating: 5
     },
     {
         name: "Anuradhini Piliyandala - Sri Lanka",
-        photo: Hotelcover,
+        photo: Rev2,
         comment: "Fantastic Experience at Araliya Red Hotel, Nuwara Eliya! We recently had our wedding at Araliya Red Hotel in Nuwara Eliya, and it was an absolutely amazing experience...",
         rating: 5
     },
     {
         name: "Mohamed Silfan",
-        photo: Hotelcover,
+        photo: Rev3,
         comment: "This place was such a pleasant. We stayed only one night but the experience was very memorable and lovely! This place was quiet, cosy and relaxing.",
         rating: 4
     }
