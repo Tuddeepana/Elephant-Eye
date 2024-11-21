@@ -8,6 +8,7 @@ import Gallery from "../pages/gallery/gallery.jsx";
 import PrivateRoute from './PrivateRoute.jsx';
 import Book from '../pages/admin/menu/Book.jsx'
 import Rooms from "../pages/rooms/Rooms.jsx";
+import Form from "../assets/Components/Forms/Form1.jsx";
 
 const Router = () => {
     return (
@@ -16,6 +17,8 @@ const Router = () => {
                 <Route path="/" element={<Home />} />
                 <Route path="/gallery" element={<Gallery />} />
                 <Route path="/rooms" element={<Rooms />} />
+                <Route path="/book" element={<Form/>}/>
+
 
                 <Route path="/aboutus" element={<Aboutus />} />
                 <Route path="/admin" element={<Admin />} />
