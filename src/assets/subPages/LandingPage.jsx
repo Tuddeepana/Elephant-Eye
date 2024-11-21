@@ -16,7 +16,8 @@ const Slideshow = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [Nationality, setNationality] = useState("Nationality");
   const [checkInDate, setCheckInDate] = useState(dayjs());
-  
+  const [checkOutDate, setCheckOutDate] = useState(dayjs().add(1, "day"));
+  const [errors, setErrors] = useState({});
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -27,6 +28,30 @@ const Slideshow = () => {
 
   const handleNationalityChange = (event) => {
     setNationality(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const validationErrors = {};
+
+    if (!checkInDate ) {
+      validationErrors.checkInDate = "Check-in date must be today or a future date.";
+    }
+
+    if (checkOutDate == null) {
+      validationErrors.checkOutDate = "Check-out date must be after the check-in date.";
+    }
+
+    if (Nationality === "Nationality") {
+      validationErrors.nationality = "Please select a nationality.";
+    }
+
+    setErrors(validationErrors);
+
+    if (Object.keys(validationErrors).length === 0) {
+      // Submit form if there are no errors
+      console.log("Form submitted");
+    }
   };
 
   return (
@@ -45,16 +70,41 @@ const Slideshow = () => {
         ))}
 
         {/* Overlay for White Box */}
-        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 mb-8 bg-white bg-opacity-90 px-4 py-6 rounded-lg shadow-lg w-full max-w-xl sm:px-8 sm:py-10 md:max-w-2xl lg:max-w-4xl">
-          <form className="space-y-4">
+        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 mb-8 bg-white bg-opacity-70 px-4 py-6 rounded-lg shadow-lg w-full max-w-xl sm:px-10 sm:py-6 md:max-w-2xl lg:max-w-4xl">
+          <form className="space-y-4" onSubmit={handleSubmit}>
             <div className="flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-4 lg:space-x-8">
               <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DatePicker label="Check-out"
-                      value={checkInDate}
-                      onChange={(newValue) => setCheckInDate(newValue)} />
+                <DatePicker
+                  label="Check-in"
+                  value={checkInDate}
+                  onChange={(newValue) => setCheckInDate(newValue)}
+                  minDate={dayjs()}
+                  renderInput={(props) => (
+                    <div>
+                      {props}
+                      {errors.checkInDate && (
+                        <span className="text-red-500 text-sm">{errors.checkInDate}</span>
+                      )}
+                    </div>
+                  )}
+                />
               </LocalizationProvider>
+
               <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DatePicker label="Check-out" />
+                <DatePicker
+                  label="Check-out"
+                  value={checkOutDate}
+                  onChange={(newValue) => setCheckOutDate(newValue)}
+                  minDate={checkInDate}
+                  renderInput={(props) => (
+                    <div>
+                      {props}
+                      {errors.checkOutDate && (
+                        <span className="text-red-500 text-sm">{errors.checkOutDate}</span>
+                      )}
+                    </div>
+                  )}
+                />
               </LocalizationProvider>
 
               <div className="w-full md:w-1/3 mt-4 md:mt-0">
@@ -71,12 +121,15 @@ const Slideshow = () => {
                     </MenuItem>
                   ))}
                 </Select>
+                {errors.nationality && (
+                  <span className="text-red-500 text-sm">{errors.nationality}</span>
+                )}
               </div>
 
               <div className="mt-4 md:mt-0 md:w-auto w-full">
                 <button
                   type="submit"
-                  className="bg-amber-950 w-full md:w-36 px-6 py-4 text-white font-semibold rounded hover:bg-blue-700"
+                  className="bg-yellow-700 w-full md:w-36 px-6 py-4 text-white font-semibold rounded hover:bg-yellow-800"
                 >
                   Book Now
                 </button>
@@ -85,7 +138,7 @@ const Slideshow = () => {
           </form>
         </div>
       </div>
-      </div>
+    </div>
   );
 };
 
