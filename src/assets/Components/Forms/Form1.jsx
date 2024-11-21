@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { TextField, Button, Grid, Container, Typography, Card, CardContent, Icon } from '@mui/material';
+import { TextField, Button, Grid, Container, Typography, Card, CardContent } from '@mui/material';
 import BookIcon from '@mui/icons-material/Book';
 
 const ReservationForm = () => {
@@ -49,7 +49,7 @@ const ReservationForm = () => {
                     </Typography>
                     <form onSubmit={handleSubmit}>
                         <Grid container spacing={3}>
-                            <Grid item xs={12}>
+                            <Grid item xs={6}>
                                 <TextField
                                     fullWidth
                                     label="Name"
@@ -59,7 +59,7 @@ const ReservationForm = () => {
                                     required
                                 />
                             </Grid>
-                            <Grid item xs={12}>
+                            <Grid item xs={6}>
                                 <TextField
                                     fullWidth
                                     label="NIC"
@@ -69,7 +69,7 @@ const ReservationForm = () => {
                                     required
                                 />
                             </Grid>
-                            <Grid item xs={12}>
+                            <Grid item xs={6}>
                                 <TextField
                                     fullWidth
                                     label="Passport Number"
@@ -79,7 +79,7 @@ const ReservationForm = () => {
                                     required
                                 />
                             </Grid>
-                            <Grid item xs={12}>
+                            <Grid item xs={6}>
                                 <TextField
                                     fullWidth
                                     label="Nationality"
@@ -89,7 +89,7 @@ const ReservationForm = () => {
                                     required
                                 />
                             </Grid>
-                            <Grid item xs={12}>
+                            <Grid item xs={6}>
                                 <TextField
                                     fullWidth
                                     label="Country Code"
@@ -99,7 +99,7 @@ const ReservationForm = () => {
                                     required
                                 />
                             </Grid>
-                            <Grid item xs={12}>
+                            <Grid item xs={6}>
                                 <TextField
                                     fullWidth
                                     label="Mobile Number"
