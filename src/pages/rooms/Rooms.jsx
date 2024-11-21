@@ -24,7 +24,7 @@ const Rooms = () => {
     return (
         <div className="overflow-x-hidden">
             <LandingPage />
-            
+
             {/* Header Section */}
             <div className="flex flex-col items-center justify-center px-4">
                 <h1 className="text-center text-6xl md:text-8xl mt-24 font-bold" style={{ color: '#2a2a2a' }}>Rooms</h1>
@@ -54,7 +54,7 @@ const Rooms = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="fixed bottom-4 right-4 bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition-all duration-300"
-                style={{ maxWidth: 'calc(100% - 16px)' }}
+                style={{ maxWidth: 'calc(100% - 16px)'}}
             >
                 <WhatsAppIcon />
             </a>
@@ -63,6 +63,7 @@ const Rooms = () => {
             <div className="mt-24">
                 <Footer />
             </div>
+
         </div>
     );
 };

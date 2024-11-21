@@ -119,7 +119,7 @@ const Home = () => {
         <>
             <div className="overflow-hidden">
                 <LandingPage />
-                <RoomCategories />
+
                 {/* This Introduction page 1st Section */}
                 <div className="flex flex-col items-center justify-center px-4">
                     <h1 className="text-center text-8xl mt-24 font-bold" style={{ color: '#2a2a2a' }}>Elephant Eye</h1>
@@ -165,6 +165,7 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
+                <RoomCategories />
 
                 {/* Conventional Location Section */}
                 <h1 className="text-center text-7xl mt-24 font-bold" style={{ color: '#2a2a2a' }}>Conventional Location</h1>
