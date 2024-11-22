@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { TextField, Button, Grid, Container, Typography, Card, CardContent } from '@mui/material';
+import { TextField, Button, Grid, Container, Typography, Card, CardContent, MenuItem } from '@mui/material';
 import BookIcon from '@mui/icons-material/Book';
 
 const ReservationForm = () => {
     const [formData, setFormData] = useState({
         name: '',
+        address: '',
         nic: '',
         passportNumber: '',
-        nationality: '',
+        nationality: 'Sri Lanka',
         countryCode: '',
         mobileNumber: '',
+        roomCategory: '',
+        mealPlan: '',
         adults: '',
         children: '',
         checkinDate: '',
@@ -35,7 +38,7 @@ const ReservationForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const message = `Name: ${formData.name}%0ANIC: ${formData.nic}%0APassport Number: ${formData.passportNumber}%0ANationality: ${formData.nationality}%0ACountry Code: ${formData.countryCode}%0AMobile Number: ${formData.mobileNumber}%0AAdults: ${formData.adults}%0AChildren: ${formData.children}%0ACheck-in Date: ${formData.checkinDate}%0ACheck-out Date: ${formData.checkoutDate}`;
+        const message = `Name: ${formData.name}%0AAddress: ${formData.address}%0ANIC: ${formData.nic}%0APassport Number: ${formData.passportNumber}%0ANationality: ${formData.nationality}%0ACountry Code: ${formData.countryCode}%0AMobile Number: ${formData.mobileNumber}%0ARoom Category: ${formData.roomCategory}%0AMeal Plan: ${formData.mealPlan}%0AAdults: ${formData.adults}%0AChildren: ${formData.children}%0ACheck-in Date: ${formData.checkinDate}%0ACheck-out Date: ${formData.checkoutDate}`;
         const whatsappUrl = `https://wa.me/94716520690?text=${message}`;
         window.location.href = whatsappUrl;
     };
@@ -49,7 +52,7 @@ const ReservationForm = () => {
                     </Typography>
                     <form onSubmit={handleSubmit}>
                         <Grid container spacing={3}>
-                            <Grid item xs={6}>
+                            <Grid item xs={12}>
                                 <TextField
                                     fullWidth
                                     label="Name"
@@ -59,37 +62,54 @@ const ReservationForm = () => {
                                     required
                                 />
                             </Grid>
-                            <Grid item xs={6}>
+                            <Grid item xs={12}>
                                 <TextField
                                     fullWidth
-                                    label="NIC"
-                                    name="nic"
-                                    value={formData.nic}
+                                    label="Address"
+                                    name="address"
+                                    value={formData.address}
                                     onChange={handleChange}
                                     required
                                 />
                             </Grid>
-                            <Grid item xs={6}>
+                            <Grid item xs={12}>
                                 <TextField
                                     fullWidth
-                                    label="Passport Number"
-                                    name="passportNumber"
-                                    value={formData.passportNumber}
-                                    onChange={handleChange}
-                                    required
-                                />
-                            </Grid>
-                            <Grid item xs={6}>
-                                <TextField
-                                    fullWidth
+                                    select
                                     label="Nationality"
                                     name="nationality"
                                     value={formData.nationality}
                                     onChange={handleChange}
                                     required
-                                />
+                                >
+                                    <MenuItem value="Sri Lanka">Sri Lanka</MenuItem>
+                                    <MenuItem value="Other">Other</MenuItem>
+                                </TextField>
                             </Grid>
-                            <Grid item xs={6}>
+                            {formData.nationality === 'Sri Lanka' ? (
+                                <Grid item xs={12}>
+                                    <TextField
+                                        fullWidth
+                                        label="NIC"
+                                        name="nic"
+                                        value={formData.nic}
+                                        onChange={handleChange}
+                                        required
+                                    />
+                                </Grid>
+                            ) : (
+                                <Grid item xs={12}>
+                                    <TextField
+                                        fullWidth
+                                        label="Passport Number"
+                                        name="passportNumber"
+                                        value={formData.passportNumber}
+                                        onChange={handleChange}
+                                        required
+                                    />
+                                </Grid>
+                            )}
+                            <Grid item xs={12}>
                                 <TextField
                                     fullWidth
                                     label="Country Code"
@@ -99,7 +119,7 @@ const ReservationForm = () => {
                                     required
                                 />
                             </Grid>
-                            <Grid item xs={6}>
+                            <Grid item xs={12}>
                                 <TextField
                                     fullWidth
                                     label="Mobile Number"
@@ -108,6 +128,39 @@ const ReservationForm = () => {
                                     onChange={handleChange}
                                     required
                                 />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <TextField
+                                    fullWidth
+                                    select
+                                    label="Room Category"
+                                    name="roomCategory"
+                                    value={formData.roomCategory}
+                                    onChange={handleChange}
+                                    required
+                                >
+                                    <MenuItem value="Single">Single</MenuItem>
+                                    <MenuItem value="Double">Double</MenuItem>
+                                    <MenuItem value="Double Twin">Double Twin</MenuItem>
+                                    <MenuItem value="Triple">Triple</MenuItem>
+                                    <MenuItem value="Family">Family</MenuItem>
+                                </TextField>
+                            </Grid>
+                            <Grid item xs={12}>
+                                <TextField
+                                    fullWidth
+                                    select
+                                    label="Meal Plan"
+                                    name="mealPlan"
+                                    value={formData.mealPlan}
+                                    onChange={handleChange}
+                                    required
+                                >
+                                    <MenuItem value="Room Only">Room Only</MenuItem>
+                                    <MenuItem value="Bed & Breakfast">Bed & Breakfast</MenuItem>
+                                    <MenuItem value="Half Board">Half Board</MenuItem>
+                                    <MenuItem value="Full Board">Full Board</MenuItem>
+                                </TextField>
                             </Grid>
                             <Grid item xs={6}>
                                 <TextField
