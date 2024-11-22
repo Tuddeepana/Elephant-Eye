@@ -9,6 +9,7 @@ import PrivateRoute from './PrivateRoute.jsx';
 import Book from '../pages/admin/menu/Book.jsx'
 import Rooms from "../pages/rooms/Rooms.jsx";
 import Form from "../assets/Components/Forms/Form1.jsx";
+import Offer from "../pages/admin/menu/Offer.jsx";
 
 const Router = () => {
     return (
@@ -25,6 +26,7 @@ const Router = () => {
                 <Route path="/book" element={<Book />} />
 
                 <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
+                <Route path="/offer" element={<PrivateRoute><Offer/></PrivateRoute>} />
             </Routes>
         </BrowserRouter>
     );
