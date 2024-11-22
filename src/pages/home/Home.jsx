@@ -97,21 +97,21 @@ const Home = () => {
     const unbeatableOffers = [
         {
             imageUrl: Srilanka,
-            title: "Sri Lankan Cuisine",
-            location: "1 hour from Nuwara Eliya",
-            description: "A beautiful place to visit"
+            title: "Sri Lankan Delicacies",
+            location: "",//if want added the details
+            description: ""
         },
         {
             imageUrl: Chinees,
-            title: "Chinese Meal",
-            location: "2 hours from Kandy",
-            description: "A serene mountain retreat"
+            title: "Chinese Cuisines ",
+            location: "",
+            description: ""
         },
         {
             imageUrl: Western,
-            title: "Western Meals",
-            location: "In the heart of Colombo",
-            description: "Experience the vibrant city life"
+            title: "Western Dishes ",
+            location: "",
+            description: ""
         }
     ];
 
