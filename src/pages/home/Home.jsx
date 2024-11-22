@@ -91,7 +91,8 @@ const Home = () => {
             title: "Bunadala Paradise",
             location: "6 hours from Trincomalee",
             description: "Enjoy the serene environment"
-        }
+        },
+
     ];
 
     const unbeatableOffers = [
