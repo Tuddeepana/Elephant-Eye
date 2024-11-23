@@ -63,6 +63,12 @@ VirtuosoTableComponents.TableBody.displayName = 'TableBody';
 
 export default function ReactVirtualizedTable() {
     const [rows, setRows] = React.useState(initialRows);
+    const [totalBookingAmount, setTotalBookingAmount] = React.useState(0);
+
+    React.useEffect(() => {
+        const total = rows.reduce((sum, row) => sum + parseFloat(row.bookingAmount.replace('$', '')), 0);
+        setTotalBookingAmount(total);
+    }, [rows]);
 
     const handleRowChange = (index, key, value) => {
         const newRows = [...rows];
@@ -72,6 +78,12 @@ export default function ReactVirtualizedTable() {
 
     const handleAddRow = () => {
         setRows([...rows, createData('', '', '', '', '', '', '', '')]);
+    };
+
+    const handleClearRows = () => {
+        if (window.confirm('Are you sure you want to clear the table?')) {
+            setRows([]);
+        }
     };
 
     const fixedHeaderContent = () => (
@@ -141,16 +153,34 @@ export default function ReactVirtualizedTable() {
                     >
                         Add Row
                     </Button>
+                </TableCell>
 
+                <TableCell colSpan={columns.length} align="right">
                     <Button
                         variant="contained"
                         onClick={() => {
                             // Add your save functionality here
                             console.log('Save button clicked!');
                         }}
+                        style={{ backgroundColor: 'green', color: 'white' }}
                     >
                         Save
                     </Button>
+                </TableCell>
+
+                <TableCell colSpan={columns.length} align="right">
+                    <Button
+                        variant="contained"
+                        onClick={handleClearRows}
+                        style={{ backgroundColor: 'red', color: 'white' }}
+                    >
+                        Clear
+                    </Button>
+                </TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell colSpan={columns.length} align="right" style={{ fontWeight: 'bold' }}>
+                    Total Booking Amount: ${totalBookingAmount}
                 </TableCell>
             </TableRow>
         </Paper>
