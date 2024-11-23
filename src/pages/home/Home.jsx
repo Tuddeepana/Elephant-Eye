@@ -28,14 +28,13 @@ import '../../style/main.css'
 import RoomCategories from "../../assets/subPages/RoomCategories.jsx";
 
 const Popup = ({ imageUrl, onClose, isMinimized, onMinimize, isVisible }) => (
-    <div className={`popup-overlay ${isMinimized ? "minimized" : ""} ${!isVisible ? "hidden" : ""}`} onClick={onMinimize}>
+    <div className={`popup-overlay ${isMinimized ? "minimized" : ""} ${!isVisible ? "popup-hidden" : ""}`} onClick={onMinimize}>
         <div className="popup-content" onClick={(e) => e.stopPropagation()}>
             <span className="close-icon" onClick={onClose}>&times;</span>
-            <img src={imageUrl} alt="Popup" />
+            <img src={imageUrl} alt="Popup" className="popup-image" />
         </div>
     </div>
 );
-
 const Home = () => {
     const [isPopupVisible, setIsPopupVisible] = useState(true);
     const [isMinimized, setIsMinimized] = useState(false);
@@ -172,9 +171,10 @@ const Home = () => {
                     isVisible={isMinimizedVisible}
                 />
             )}
+            <LandingPage />
             <div className={isPopupVisible && !isMinimized ? "blur-background" : ""}>
                 <div className="overflow-hidden">
-                    <LandingPage />
+
 
                     <div className="flex flex-col items-center justify-center px-4">
                         <h1 className="text-center text-8xl mt-24 font-bold" style={{ color: '#2a2a2a' }}>Elephant Eye</h1>

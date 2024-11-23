@@ -72,7 +72,7 @@ body{
 .toggle-button {
     position: fixed;
     bottom: 10px;
-    left: 10px;
+    left: 30px;
     z-index: 1002;
     background: green;
     color: white;
@@ -82,9 +82,11 @@ body{
     border-radius: 5px;
 }
 
-.hidden {
+.popup-hidden {
     display: none;
 }
+
+
 
 @keyframes zoom {
     0%, 100% {

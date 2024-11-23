@@ -1,5 +1,6 @@
+// src/utils/Navbar.jsx
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import hotel_logo from "../assets/img/common/hotel_logo.png";
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
@@ -9,7 +10,6 @@ const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const navigate = useNavigate();
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -26,10 +26,6 @@ const Navbar = () => {
 
     const getLinkClass = (path) => {
         return window.location.pathname === path ? "text-yellow-500" : "hover:text-yellow-500";
-    };
-
-    const handleNavigate = () => {
-        navigate('/roomtable');
     };
 
     const handleModalOpen = () => {
@@ -69,7 +65,7 @@ const Navbar = () => {
                         <Link to="/gallery" className={getLinkClass("/gallery")}>Gallery</Link>
                         <Link to="/aboutus" className={getLinkClass("/aboutus")}>About us</Link>
                         <button
-                            onClick={handleNavigate}
+                            onClick={handleModalOpen}
                             className="px-4 py-2 bg-yellow-700 text-white font-semibold rounded hover:bg-yellow-800"
                         >
                             Book Now
@@ -78,7 +74,7 @@ const Navbar = () => {
 
                     <div className="lg:hidden">
                         <button
-                            onClick={handleNavigate}
+                            onClick={handleModalOpen}
                             className="px-4 py-2 bg-yellow-700 text-white font-semibold rounded hover:bg-yellow-800"
                         >
                             Book Now
