@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { FaBed, FaUsers, FaDollarSign, FaCheckCircle } from "react-icons/fa";
 import { MdOutlineDelete } from "react-icons/md";
 import { roomData } from "./roomData"; // Assuming roomData is in a separate file
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useNavigate } from "react-router-dom";
+import Navbar from "../utils/Navbar.jsx"; // Import useNavigate
 
 
 const RoomTable = () => {
@@ -99,7 +100,10 @@ const RoomTable = () => {
   };
 
   return (
-      <div className="container mx-auto p-4 lg:p-8">
+      <div>
+      <Navbar/>
+      <div className="container mx-auto p-4 lg:p-8 mt-24">
+
         <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">
           <FaBed className="inline-block text-blue-500 mr-2" />
           Room Booking
@@ -269,6 +273,7 @@ const RoomTable = () => {
           )}
         </div>
       </div>
+        </div>
   );
 };
 

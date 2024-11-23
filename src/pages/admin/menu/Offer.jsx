@@ -1,5 +1,6 @@
+// src/pages/admin/menu/Offer.jsx
 import React, { useState } from 'react';
-import { Box, Button, Typography, TextField, CircularProgress } from '@mui/material';
+import { Box, Button, Typography, CircularProgress } from '@mui/material';
 import { styled } from '@mui/system';
 
 const StyledBox = styled(Box)`
@@ -12,13 +13,13 @@ const StyledBox = styled(Box)`
     width: 100%;
 `;
 
-const Offer = () => {
+const Offer = ({ onImageLinkSubmit }) => {
     const [loading, setLoading] = useState(false);
-    const [image, setImage] = useState(null);
+    const [imageLink, setImageLink] = useState('');
     const [title, setTitle] = useState('');
 
-    const handleImageChange = (e) => {
-        setImage(e.target.files[0]);
+    const handleImageLinkChange = (e) => {
+        setImageLink(e.target.value);
     };
 
     const handleTitleChange = (e) => {
@@ -28,11 +29,10 @@ const Offer = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         setLoading(true);
-        // Handle the image upload logic here
         setTimeout(() => {
             setLoading(false);
-            // Reset form after upload
-            setImage(null);
+            onImageLinkSubmit(imageLink);
+            setImageLink('');
             setTitle('');
         }, 2000);
     };
@@ -40,34 +40,25 @@ const Offer = () => {
     return (
         <StyledBox>
             <Typography variant="h5" component="h1" gutterBottom>
-                Upload the Offer Image
+                Paste the Offer Image Link
             </Typography>
             <form onSubmit={handleSubmit} noValidate>
-                <TextField
-                    variant="outlined"
-                    margin="normal"
+                <input
+                    type="text"
                     required
-                    fullWidth
-                    id="title"
-                    label="Title"
-                    name="title"
+                    placeholder="Title"
                     value={title}
                     onChange={handleTitleChange}
+                    style={{ width: '100%', padding: '10px', margin: '10px 0', borderRadius: '4px', border: '1px solid #ddd' }}
                 />
-                <Button
-                    variant="contained"
-                    component="label"
-                    fullWidth
-                    sx={{ mt: 2, mb: 2 }}
-                >
-                    {image ? image.name : "Choose Image"}
-                    <input
-                        type="file"
-                        hidden
-                        accept="image/*"
-                        onChange={handleImageChange}
-                    />
-                </Button>
+                <input
+                    type="text"
+                    required
+                    placeholder="Image Link"
+                    value={imageLink}
+                    onChange={handleImageLinkChange}
+                    style={{ width: '100%', padding: '10px', margin: '10px 0', borderRadius: '4px', border: '1px solid #ddd' }}
+                />
                 <Button
                     type="submit"
                     fullWidth
@@ -75,7 +66,7 @@ const Offer = () => {
                     color="primary"
                     disabled={loading}
                 >
-                    {loading ? <CircularProgress size={24} /> : "Upload"}
+                    {loading ? <CircularProgress size={24} /> : "Submit"}
                 </Button>
             </form>
         </StyledBox>

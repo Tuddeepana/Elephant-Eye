@@ -23,6 +23,7 @@ import Ridiyagama from '../../assets/img/cardImages/ridiyagama.jpg'
 import Kururlu from '../../assets/img/cardImages/kururlu.jpg'
 import Dry from '../../assets/img/cardImages/Dry.jpg'
 import Ridi from '../../assets/img/cardImages/ridi.jpg'
+import Offer from '../../assets/img/common/Offer.jpg'
 
 import '../../style/main.css'
 import RoomCategories from "../../assets/subPages/RoomCategories.jsx";
@@ -164,7 +165,7 @@ const Home = () => {
         <>
             {isPopupVisible && (
                 <Popup
-                    imageUrl={Ridiyagama}
+                    imageUrl={Offer}
                     onClose={handleClosePopup}
                     isMinimized={isMinimized}
                     onMinimize={handleMinimizePopup}
