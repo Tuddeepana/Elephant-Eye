@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import deluxe_dbl_balcony from "../img/RoomImgs/room4.jpg";
-import Deluxe_Twin from "../img/RoomImgs/room3.jpg";
-import Triple_room from "../img/RoomImgs/room2.jpg";
-import Deluxe_family from "../img/RoomImgs/room1.jpg";
+import Deluxe_Twin from "../img/gallery/rooms/Twin.jpg";
+import Triple_room from "../img/gallery/rooms/Triple.jpg";
+import Deluxe_family from "../img/gallery/rooms/family.jpg";
 
 const ImageSwitcher = () => {
   const images = {
