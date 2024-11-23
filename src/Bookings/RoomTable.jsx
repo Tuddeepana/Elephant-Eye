@@ -53,6 +53,8 @@ const RoomTable = () => {
 
   const handleProceed = () => {
     console.log("Selected Room Options:", selectedRooms);
+    window.alert("Reservation Successfull")
+    setSelectedRooms([]);
   };
 
   const calculateTotalPrice = (room, type, persons, roomsCount) => {
@@ -186,13 +188,12 @@ const RoomTable = () => {
         </h2>
         {selectedRooms.length > 0 ? (
           <div>
-            <ul className="space-y-4">
+            <ul>
               {selectedRooms.map((room, index) => (
-                <li key={index} className="flex justify-between items-center bg-white p-4 rounded shadow">
+                <li key={index} className="flex justify-between items-center border-b border-gray-300 py-2">
                   <div>
-                    <p className="text-gray-800 font-semibold">
-                      {room.selectedRooms} x {room.type} ({room.selectedPersons} Person
-                      {room.selectedPersons > 1 ? "s" : ""}) - ${room.totalPrice.toFixed(2)}
+                    <p className="font-medium text-gray-800">
+                      {room.selectedRooms} x {room.type} ({room.selectedType})
                     </p>
                     <p className="text-sm text-gray-600">{room.selectedType}</p>
                   </div>
@@ -215,7 +216,7 @@ const RoomTable = () => {
               Proceed to Checkout
             </button>
           </div>
-        ) : (
+        ) :  (
           <p className="text-center text-gray-500">No rooms selected yet.</p>
         )}
       </div>
