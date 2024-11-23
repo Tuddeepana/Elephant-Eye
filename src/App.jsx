@@ -6,9 +6,10 @@ function App() {
 
   return (
     <>
-      <div>
-         <RoomTable></RoomTable>
-      </div>
+        <Router></Router>
+      {/*<div>*/}
+      {/*   <RoomTable></RoomTable>*/}
+      {/*</div>*/}
     </>
   )
 }
