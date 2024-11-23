@@ -1,13 +1,13 @@
 // src/pages/rooms/Rooms.jsx
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Card3 from "../../assets/Components/Cards/Card3/Card3";
+
 import Img1 from "../../assets/img/gallery/rooms/family.jpg";
-import Img1a from "../../assets/img/gallery/rooms/family1.jpg";
+
 import Img2 from "../../assets/img/gallery/rooms/triple1.jpg";
-import Img3 from "../../assets/img/gallery/rooms/triple.jpg";
+
 import Img4 from "../../assets/img/gallery/rooms/Twin.jpg";
-import Img5 from "../../assets/img/gallery/rooms/twin1.jpg";
+
 import LandingPage from "../../assets/subPages/LandingPage.jsx";
 import Footer from "../../utils/Footer.jsx";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
