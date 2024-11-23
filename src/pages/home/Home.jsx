@@ -51,7 +51,7 @@ const Home = () => {
 
     const slides = [
         {
-            imageUrl: Yala,
+            imageUrl: Ridiyagama,
             title: "Yala National Park",
             location: "1 hour from Nuwara Eliya",
             description: "A beautiful place to visit"
@@ -76,7 +76,7 @@ const Home = () => {
         },
         {
             imageUrl: Bundala,
-            title: "Bundala Birds Parks",
+            title: "Bunadala Paradise",
             location: "4 hours from Jaffna",
             description: "Discover the desert beauty"
         },
