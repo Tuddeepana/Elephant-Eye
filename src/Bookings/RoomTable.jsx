@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { FaBed, FaUsers, FaDollarSign, FaCheckCircle } from "react-icons/fa";
 import { MdOutlineDelete } from "react-icons/md";
 import { roomData } from "./roomData"; // Assuming roomData is in a separate file
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 const RoomTable = () => {
+  const today = new Date().toISOString().split("T")[0];
   const [rooms, setRooms] = useState(
       roomData.map((room) => ({
         ...room,
@@ -14,6 +16,9 @@ const RoomTable = () => {
   );
   const [selectedRooms, setSelectedRooms] = useState([]);
   const [error, setError] = useState("");
+  const [checkInDate, setCheckInDate] = useState(today);
+  const [checkOutDate, setCheckOutDate] = useState(today);
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const handleSelectRoom = (room) => {
     if (room.selectedRooms > room.currentlyAvailable) {
@@ -50,10 +55,27 @@ const RoomTable = () => {
     setSelectedRooms(selectedRooms.filter((_, i) => i !== index));
   };
 
+  const validateDates = () => {
+    if (new Date(checkInDate) >= new Date(checkOutDate)) {
+      setError("Check-out date must be after check-in date.");
+      return false;
+    }
+    return true;
+  };
+
   const handleProceed = () => {
-    console.log("Selected Room Options:", selectedRooms);
+    if (!validateDates()) {
+      return;
+    }
+    const reservationDetails = {
+      checkInDate,
+      checkOutDate,
+      selectedRooms,
+    };
+    console.log("Reservation Details:", reservationDetails);
     window.alert("Reservation Successful");
     setSelectedRooms([]);
+    navigate("/book", { state: reservationDetails }); // Pass reservation details to /book
   };
 
   const calculateTotalPrice = (room, type, persons, roomsCount) => {
@@ -87,6 +109,30 @@ const RoomTable = () => {
               <p>{error}</p>
             </div>
         )}
+
+        {/* Check-in and Check-out Date Inputs */}
+        <div className="mb-6 flex justify-start space-x-4">
+          <div>
+            <label className="block text-gray-700 font-semibold mb-2" htmlFor="checkInDate">Check-in Date</label>
+            <input
+                type="date"
+                id="checkInDate"
+                value={checkInDate}
+                onChange={(e) => setCheckInDate(e.target.value)}
+                className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+          <div>
+            <label className="block text-gray-700 font-semibold mb-2" htmlFor="checkOutDate">Check-out Date</label>
+            <input
+                type="date"
+                id="checkOutDate"
+                value={checkOutDate}
+                onChange={(e) => setCheckOutDate(e.target.value)}
+                className="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+        </div>
 
         {/* Room Selection Table */}
         <div className="overflow-x-auto">
@@ -148,7 +194,7 @@ const RoomTable = () => {
                     >
                       {[...Array(room.maxPersonCount)].map((_, i) => (
                           <option key={i} value={i + 1}>
-                            {i + 1} Person{(i + 1 > 1) ? "s" : ""}
+                            {i + 1} Person{ i + 1 > 1 ? 's' : ''}
                           </option>
                       ))}
                     </select>
