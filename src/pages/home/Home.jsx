@@ -92,6 +92,18 @@ const Home = () => {
             location: "6 hours from Trincomalee",
             description: "Enjoy the serene environment"
         },
+        {
+            imageUrl: Ridiyagama,
+            title: "Kirinda Temple",
+            location: "2.5 hours from Kandy",
+            description: "A historic temple with stunning views"
+        },
+        {
+            imageUrl: "path/to/kurulu_uyana.jpg",
+            title: "Kurulu Uyana",
+            location: "3.5 hours from Colombo",
+            description: "A bird sanctuary with diverse species"
+        },
 
     ];
 
@@ -169,10 +181,12 @@ const Home = () => {
                 <RoomCategories />
 
                 {/* Conventional Location Section */}
+                {/* Conventional Location Section */}
                 <h1 className="text-center text-7xl mt-24 font-bold" style={{ color: '#2a2a2a' }}>Conventional Location</h1>
                 <div className="mt-8 flex justify-center w-full overflow-hidden">
                     <div className="w-full max-w-full md:max-w-6xl">
                         <div className="block md:hidden">
+                            {/* For small screens, use a slider */}
                             <Slider {...settings}>
                                 {slides.map((slide, index) => (
                                     <Card
@@ -185,33 +199,22 @@ const Home = () => {
                                 ))}
                             </Slider>
                         </div>
-                        <div className="hidden md:flex flex-wrap justify-end space-x-4">
-                            <div className="flex justify-end space-x-4 w-full">
-                                {slides.slice(0, 3).map((slide, index) => (
-                                    <Card
-                                        key={index}
-                                        imageUrl={slide.imageUrl}
-                                        title={slide.title}
-                                        location={slide.location}
-                                        description={slide.description}
-                                    />
-                                ))}
-                            </div>
-                            <div className="flex justify-end space-x-4 w-full mt-4">
-                                {slides.slice(3, 6).map((slide, index) => (
-                                    <Card
-                                        key={index}
-                                        imageUrl={slide.imageUrl}
-                                        title={slide.title}
-                                        location={slide.location}
-                                        description={slide.description}
-                                    />
-                                ))}
-                            </div>
+                        <div className="hidden md:grid grid-cols-3 gap-4">
+                            {/* For medium and larger screens, use a grid */}
+                            {slides.map((slide, index) => (
+                                <Card
+                                    key={index}
+                                    imageUrl={slide.imageUrl}
+                                    title={slide.title}
+                                    location={slide.location}
+                                    description={slide.description}
+                                />
+                            ))}
                         </div>
                         <CenteredLine />
                     </div>
                 </div>
+
 
                 {/*  This is the Reviews component use for show hotel reviews 4th Section  */}
                 <div className='mt-24'>
