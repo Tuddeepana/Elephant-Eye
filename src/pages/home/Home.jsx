@@ -16,11 +16,14 @@ import Chinees from "../../assets/img/cardImages/chinese.jpg"
 import Srilanka from '../../assets/img/cardImages/srilanka.jpg'
 import Western from '../../assets/img/cardImages/western.jpg'
 import Kirind from '../../assets/img/cardImages/kirirnda.jpg'
-import Yala from '../../assets/img/cardImages/yala.jpg'
+
 import Kataragama from '../../assets/img/cardImages/kataragama.jpg'
 import Thissamaharama from '../../assets/img/cardImages/thissamahara.jpg'
 import Bundala from '../../assets/img/cardImages/Bundala.jpg'
 import Ridiyagama from '../../assets/img/cardImages/ridiyagama.jpg'
+import Kururlu from '../../assets/img/cardImages/kururlu.jpg'
+import Dry from '../../assets/img/cardImages/Dry.jpg'
+import Ridi from '../../assets/img/cardImages/ridi.jpg'
 
 import '../../style/main.css'
 import RoomCategories from "../../assets/subPages/RoomCategories.jsx";
@@ -81,7 +84,7 @@ const Home = () => {
             description: "Discover the desert beauty"
         },
         {
-            imageUrl: Ridiyagama,
+            imageUrl: Ridi,
             title: "Ridiyagama",
             location: "5 hours from Trincomalee",
             description: "Relax on a secluded island"
@@ -93,13 +96,13 @@ const Home = () => {
             description: "Enjoy the serene environment"
         },
         {
-            imageUrl: Ridiyagama,
-            title: "Kirinda Temple",
+            imageUrl: Dry,
+            title: "Mirijjawila Botanical Garden",
             location: "2.5 hours from Kandy",
             description: "A historic temple with stunning views"
         },
         {
-            imageUrl: "path/to/kurulu_uyana.jpg",
+            imageUrl: Kururlu,
             title: "Kurulu Uyana",
             location: "3.5 hours from Colombo",
             description: "A bird sanctuary with diverse species"
