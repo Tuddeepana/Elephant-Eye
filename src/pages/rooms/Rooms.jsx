@@ -1,4 +1,6 @@
+// src/pages/rooms/Rooms.jsx
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Card3 from "../../assets/Components/Cards/Card3/Card3";
 import Img1 from "../../assets/img/gallery/rooms/family.jpg";
 import Img1a from "../../assets/img/gallery/rooms/family1.jpg";
@@ -12,6 +14,12 @@ import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import { FaRulerCombined, FaUserFriends } from "react-icons/fa";
 
 const Rooms = () => {
+    const navigate = useNavigate();
+
+    const handleBookNow = () => {
+        navigate("/roomtable");
+    };
+
     const rooms = [
         {
             images: [Img1, Img1a], // Two images per room
@@ -83,9 +91,10 @@ const Rooms = () => {
                                     <FaUserFriends className="mr-2" />
                                     {room.occupancy}
                                 </div>
-                                {/* Sexy Book Now Button */}
+                                {/* Book Now Button */}
                                 <button
                                     className="w-full bg-gradient-to-r from-green-500 to-blue-500 text-white py-3 rounded-lg font-bold text-lg shadow-lg hover:from-green-600 hover:to-blue-600 transition-all duration-300"
+                                    onClick={handleBookNow}
                                 >
                                     Book Now
                                 </button>
