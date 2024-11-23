@@ -1,13 +1,13 @@
 // src/pages/rooms/Rooms.jsx
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Card3 from "../../assets/Components/Cards/Card3/Card3";
+
 import Img1 from "../../assets/img/gallery/rooms/family.jpg";
-import Img1a from "../../assets/img/gallery/rooms/family1.jpg";
+
 import Img2 from "../../assets/img/gallery/rooms/triple1.jpg";
-import Img3 from "../../assets/img/gallery/rooms/triple.jpg";
+
 import Img4 from "../../assets/img/gallery/rooms/Twin.jpg";
-import Img5 from "../../assets/img/gallery/rooms/twin1.jpg";
+
 import LandingPage from "../../assets/subPages/LandingPage.jsx";
 import Footer from "../../utils/Footer.jsx";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
@@ -22,25 +22,28 @@ const Rooms = () => {
 
     const rooms = [
         {
-            images: [Img1, Img1a], // Two images per room
+            images: [Img1], // Only one image per room
             title: "Deluxe Family Room",
             size: "46 SQM",
             occupancy: "03 (With an extra bed)",
-            description: "A luxurious room with a beautiful view and modern amenities."
+            description: "A luxurious room with a beautiful view and modern amenities.",
+            price: "$200 per night"
         },
         {
-            images: [Img2, Img3],
+            images: [Img2],
             title: "Deluxe Triple Room",
             size: "32 SQM",
             occupancy: "02",
-            description: "A comfortable room with all the essential facilities."
+            description: "A comfortable room with all the essential facilities.",
+            price: "$150 per night"
         },
         {
-            images: [Img4, Img5],
-            title: " Deluxe Twin Room",
+            images: [Img4],
+            title: "Deluxe Twin Room",
             size: "32 SQM",
             occupancy: "02",
-            description: "A comfortable room with all the essential facilities."
+            description: "A comfortable room with all the essential facilities.",
+            price: "$120 per night"
         }
     ];
 
@@ -66,17 +69,11 @@ const Rooms = () => {
                         >
                             {/* Image Wrapper */}
                             <div className="relative h-64 overflow-hidden">
-                                {/* First Image */}
+                                {/* Single Image */}
                                 <img
                                     src={room.images[0]}
                                     alt={room.title}
-                                    className="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-500 group-hover:opacity-0"
-                                />
-                                {/* Second Image (Hover) */}
-                                <img
-                                    src={room.images[1]}
-                                    alt={`${room.title} - hover`}
-                                    className="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-500 opacity-0 group-hover:opacity-100"
+                                    className="absolute top-0 left-0 w-full h-full object-cover"
                                 />
                             </div>
                             {/* Content */}
@@ -91,13 +88,16 @@ const Rooms = () => {
                                     <FaUserFriends className="mr-2" />
                                     {room.occupancy}
                                 </div>
-                                {/* Book Now Button */}
-                                <button
-                                    className="w-full bg-gradient-to-r from-green-500 to-blue-500 text-white py-3 rounded-lg font-bold text-lg shadow-lg hover:from-green-600 hover:to-blue-600 transition-all duration-300"
+                                <div className="text-lg font-semibold text-gray-800 mb-4">
+                                    {room.price}
+                                </div>
+                                {/* Book Now Text */}
+                                <div
+                                    className="text-blue-500 font-bold text-lg cursor-pointer hover:underline"
                                     onClick={handleBookNow}
                                 >
                                     Book Now
-                                </button>
+                                </div>
                             </div>
                         </div>
                     ))}
