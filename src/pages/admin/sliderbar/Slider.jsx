@@ -1,8 +1,8 @@
 import * as React from 'react';
+import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import { extendTheme, styled } from '@mui/material/styles';
 import DashboardIcon from '@mui/icons-material/Dashboard';
-import BarChartIcon from '@mui/icons-material/BarChart';
 import DescriptionIcon from '@mui/icons-material/Description';
 import { AppProvider } from '@toolpad/core/AppProvider';
 import { DashboardLayout } from '@toolpad/core/DashboardLayout';
@@ -11,6 +11,7 @@ import Grid from '@mui/material/Grid2';
 import BookIcon from '@mui/icons-material/Book';
 import DashboardScreen from '../dashboard/Dashboard.jsx';
 import Book from '../menu/Book.jsx';
+import Offer from "../menu/Offer.jsx";
 
 const NAVIGATION = [
     {
@@ -21,6 +22,7 @@ const NAVIGATION = [
         segment: 'dashboard',
         title: 'Dashboard',
         icon: <DashboardIcon />,
+        link: '/dashboard',
     },
     {
         segment: 'book',
@@ -29,23 +31,10 @@ const NAVIGATION = [
         link: '/book',
     },
     {
-        kind: 'divider',
-    },
-    {
-        kind: 'header',
-        title: 'Analytics',
-    },
-    {
-        segment: 'reports',
-        title: 'Event',
-        icon: <BarChartIcon />,
-        children: [
-            {
-                segment: 'sales',
-                title: 'Add Offers',
-                icon: <DescriptionIcon />,
-            },
-        ],
+        segment: 'offer',
+        title: 'Add Offers',
+        icon: <DescriptionIcon />,
+        link: '/offer',
     },
 ];
 
@@ -88,12 +77,6 @@ export default function DashboardLayoutBasic(props) {
     const demoWindow = window ? window() : undefined;
     const navigate = useNavigate();
 
-    const handleNavigation = (link) => {
-        if (link) {
-            navigate(link);
-        }
-    };
-
     return (
         <AppProvider
             navigation={NAVIGATION}
@@ -106,44 +89,52 @@ export default function DashboardLayoutBasic(props) {
                     {router.pathname === '/dashboard' ? (
                         <DashboardScreen />
                     ) : router.pathname === '/book' ? (
-                        <Book />
-                    ) : (
-                        <Grid container spacing={1} style={{ width: '100%', margin: 0 }}>
-                            <Grid item xs={12} sm={5} />
-                            <Grid item xs={12}>
-                                <Skeleton height={14} />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <Skeleton height={14} />
-                            </Grid>
-                            <Grid item xs={12} sm={4}>
-                                <Skeleton height={100} />
-                            </Grid>
-                            <Grid item xs={12} sm={8}>
-                                <Skeleton height={100} />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <Skeleton height={150} />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <Skeleton height={14} />
-                            </Grid>
-                            <Grid item xs={12} sm={3}>
-                                <Skeleton height={100} />
-                            </Grid>
-                            <Grid item xs={12} sm={3}>
-                                <Skeleton height={100} />
-                            </Grid>
-                            <Grid item xs={12} sm={3}>
-                                <Skeleton height={100} />
-                            </Grid>
-                            <Grid item xs={12} sm={3}>
-                                <Skeleton height={100} />
-                            </Grid>
-                        </Grid>
-                    )}
+                            <Book />
+                        ) :
+                        router.pathname === '/offer' ? (
+                                <Offer/>
+                            ) :
+                            (
+                                <Grid container spacing={1} style={{ width: '100%', margin: 0 }}>
+                                    <Grid item xs={12} sm={5} />
+                                    <Grid item xs={12}>
+                                        <Skeleton height={14} />
+                                    </Grid>
+                                    <Grid item xs={12}>
+                                        <Skeleton height={14} />
+                                    </Grid>
+                                    <Grid item xs={12} sm={4}>
+                                        <Skeleton height={100} />
+                                    </Grid>
+                                    <Grid item xs={12} sm={8}>
+                                        <Skeleton height={100} />
+                                    </Grid>
+                                    <Grid item xs={12}>
+                                        <Skeleton height={150} />
+                                    </Grid>
+                                    <Grid item xs={12}>
+                                        <Skeleton height={14} />
+                                    </Grid>
+                                    <Grid item xs={12} sm={3}>
+                                        <Skeleton height={100} />
+                                    </Grid>
+                                    <Grid item xs={12} sm={3}>
+                                        <Skeleton height={100} />
+                                    </Grid>
+                                    <Grid item xs={12} sm={3}>
+                                        <Skeleton height={100} />
+                                    </Grid>
+                                    <Grid item xs={12} sm={3}>
+                                        <Skeleton height={100} />
+                                    </Grid>
+                                </Grid>
+                            )}
                 </PageContainer>
             </DashboardLayout>
         </AppProvider>
     );
 }
+
+DashboardLayoutBasic.propTypes = {
+    window: PropTypes.func,
+};

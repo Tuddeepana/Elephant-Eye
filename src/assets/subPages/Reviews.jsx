@@ -4,27 +4,28 @@ import { Card, CardContent, CardMedia, Typography, Grid, Box, Container } from '
 import { Rating } from '@mui/material';
 import '../../style/main.css';
 
-import Rev1 from '../../assets/img/reviews/1.jpeg';
+import Rev1 from '../../assets/img/reviews/1.png';
 import Rev2 from  '../img/reviews/2.jpeg'
 import Rev3 from  '../img/reviews/3.jpeg'
 const reviews = [
     {
-        name: "Aanchal T - Bangalore, India",
+        name: "Dilan Ubeysingha",
         photo: Rev1,
-        comment: "Hotel is lovely, so clean, big rooms. Very comfortable for family with kids. Heaters in room. Location is amazing, near to Gregory lake, one can walk if they can...",
+        comment: "A good place with all facilities, clean and friendly staff",
         rating: 5
     },
     {
-        name: "Anuradhini Piliyandala - Sri Lanka",
+        name: "Oláh Márton",
         photo: Rev2,
-        comment: "Fantastic Experience at Araliya Red Hotel, Nuwara Eliya! We recently had our wedding at Araliya Red Hotel in Nuwara Eliya, and it was an absolutely amazing experience...",
-        rating: 5
+        comment: "Very nice staff and good foods included in the room price 😊",
+        rating: 4
     },
     {
-        name: "Mohamed Silfan",
+        name: "Joshi Beck",
+
         photo: Rev3,
-        comment: "This place was such a pleasant. We stayed only one night but the experience was very memorable and lovely! This place was quiet, cosy and relaxing.",
-        rating: 4
+        comment: "We stayed here to go on a safari in Yale Park. The staff is extremely friendly and accommodating. We had a great night here and were picked up by our jeep directly from the hotel for the safari, so we were in the park first thing",
+        rating: 5
     }
 ];
 
