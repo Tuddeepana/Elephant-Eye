@@ -25,17 +25,17 @@ const Rooms = () => {
             images: [Img1], // Only one image per room
             title: "Deluxe Family Room",
             size: "46 SQM",
-            occupancy: "03 (With an extra bed)",
+            occupancy: "04 (With an extra bed)",
             description: "A luxurious room with a beautiful view and modern amenities.",
-            price: "$200 per night"
+            price: "$50 per night"
         },
         {
             images: [Img2],
             title: "Deluxe Triple Room",
             size: "32 SQM",
-            occupancy: "02",
+            occupancy: "03",
             description: "A comfortable room with all the essential facilities.",
-            price: "$150 per night"
+            price: "$38 per night"
         },
         {
             images: [Img4],
@@ -43,7 +43,7 @@ const Rooms = () => {
             size: "32 SQM",
             occupancy: "02",
             description: "A comfortable room with all the essential facilities.",
-            price: "$120 per night"
+            price: "$27 per night"
         }
     ];
 

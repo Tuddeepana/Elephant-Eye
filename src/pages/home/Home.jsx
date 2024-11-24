@@ -184,19 +184,27 @@ const Home = () => {
             <div className={isPopupVisible && !isMinimized ? "blur-background" : ""}>
                 <div className="overflow-hidden">
                     <div className="flex flex-col items-center justify-center px-4">
-                        <h1 className="text-center text-8xl mt-24 font-bold" style={{ color: '#2a2a2a' }}>Elephant Eye</h1>
+                        <h1 className="text-center text-8xl mt-24 font-bold" style={{color: '#2a2a2a'}}>Elephant
+                            Eye</h1>
                         <p className="mt-6 font-semibold text-base">Where Tranquility Embraces Elegance!</p>
                         <p className="text-center max-w-2xl mt-4 text-xl font-semibold">
-                            Experience a perfect blend of adventure and relaxation for an unforgettable stay immersed in culture and tranquility.
+                            Experience a perfect blend of adventure and relaxation for an unforgettable stay immersed in
+                            culture and tranquility.
                         </p>
-                        <h1 className="text-center text-3xl mt-16 font-bold" style={{ color: '#2a2a2a' }}>-Why Book Direct with us-</h1>
+                        <h1 className="text-center text-3xl mt-16 font-bold" style={{color: '#2a2a2a'}}>-Why Book Direct
+                            with us-</h1>
+                        <p className="text-center max-w-2xl mt-4 text-xl font-semibold">
+                            Through Book with us get Discount
+                        </p>
+
                     </div>
 
                     <div className="mt-24">
-                        <HomeCover />
+                        <HomeCover/>
                     </div>
 
-                    <h1 className="text-center text-7xl mt-24 font-bold" style={{ color: '#2a2a2a' }}>Trunk Cafe And Restaurant</h1>
+                    <h1 className="text-center text-7xl mt-24 font-bold" style={{color: '#2a2a2a'}}>Trunk Cafe And
+                        Restaurant</h1>
                     <div className="mt-8 flex justify-center w-full overflow-hidden">
                         <div className="w-full max-w-full md:max-w-6xl">
                             <div className="block md:hidden">
