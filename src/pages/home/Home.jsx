@@ -36,14 +36,22 @@ const Popup = ({ imageUrl, onClose, isMinimized, onMinimize, isVisible }) => (
         </div>
     </div>
 );
+
 const Home = () => {
+    const active = 1; // Added constant
+
     const [isPopupVisible, setIsPopupVisible] = useState(true);
     const [isMinimized, setIsMinimized] = useState(false);
     const [isMinimizedVisible, setIsMinimizedVisible] = useState(true);
 
     useEffect(() => {
-        setIsPopupVisible(true);
-    }, []);
+        if (active === 1) {
+            setIsPopupVisible(true);
+        } else {
+            setIsPopupVisible(false);
+            setIsMinimizedVisible(false);
+        }
+    }, [active]);
 
     const handleClosePopup = () => {
         setIsPopupVisible(false);
@@ -175,8 +183,6 @@ const Home = () => {
             <LandingPage />
             <div className={isPopupVisible && !isMinimized ? "blur-background" : ""}>
                 <div className="overflow-hidden">
-
-
                     <div className="flex flex-col items-center justify-center px-4">
                         <h1 className="text-center text-8xl mt-24 font-bold" style={{ color: '#2a2a2a' }}>Elephant Eye</h1>
                         <p className="mt-6 font-semibold text-base">Where Tranquility Embraces Elegance!</p>
@@ -269,12 +275,12 @@ const Home = () => {
                     <WhatsAppIcon />
                 </a>
             </div>
-            {isMinimized && isMinimizedVisible && (
+            {active === 1 && isMinimized && isMinimizedVisible && (
                 <button className="toggle-button" onClick={handleTogglePopup}>
                     Show Offer
                 </button>
             )}
-            {!isMinimized && (
+            {active === 1 && !isMinimized && (
                 <button className="toggle-button" onClick={handleMinimizePopup}>
                     Offer
                 </button>
