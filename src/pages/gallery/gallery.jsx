@@ -6,14 +6,19 @@ import Footer from "../../utils/Footer.jsx";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import './gallery.css';
 
+
+//import the gallery images
+import img1 from '../../assets/img/gallery/1 (1).jpg';
+import img2 from '../../assets/img/gallery/1 (2).jpg'
+
 const images = [
     {
-        url: image1,
+        url: img1,
         title: 'Serene Mountain Retreat',
         description: 'A serene mountain retreat 2 hours from Kandy.'
     },
     {
-        url: image1,
+        url: img2,
         title: 'Western Meals',
         description: 'Experience the vibrant city life in the heart of Colombo.'
     },

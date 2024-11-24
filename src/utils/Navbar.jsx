@@ -1,6 +1,6 @@
 // src/utils/Navbar.jsx
 import React, { useState, useEffect } from "react";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import hotel_logo from "../assets/img/common/hotel_logo.png";
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
@@ -10,6 +10,7 @@ const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const navigate = useNavigate();
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -29,7 +30,7 @@ const Navbar = () => {
     };
 
     const handleModalOpen = () => {
-        setIsModalOpen(true);
+        navigate('/roomtable');
     };
 
     const handleModalClose = () => {
