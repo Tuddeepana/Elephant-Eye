@@ -78,7 +78,8 @@ const RoomTable = () => {
     console.log("Reservation Details:", reservationDetails);
     window.alert("Reservation Successful");
     setSelectedRooms([]);
-    navigate("/book", { state: reservationDetails }); // Pass reservation details to /book
+    localStorage.setItem('reservationDetails', JSON.stringify(reservationDetails));
+    navigate("/book", { state: reservationDetails });
   };
 
   const calculateTotalPrice = (room, type, persons, roomsCount) => {
