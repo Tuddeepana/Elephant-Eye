@@ -9,7 +9,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
-import beach from "../../assets/img/Lndpg_Imgs/beach.jpg";
+
 import Reviews from "../../assets/subPages/Reviews.jsx";
 import Chinees from "../../assets/img/cardImages/chinese.jpg"
 import Srilanka from '../../assets/img/cardImages/srilanka.jpg'
@@ -129,7 +129,7 @@ const Home = () => {
             description: "Relax on a secluded island"
         },
         {
-            imageUrl: beach,
+            imageUrl: Ridi,
             title: "Bunadala Paradise",
             location: "6 hours from Trincomalee",
             description: "Enjoy the serene environment"
