@@ -1,3 +1,4 @@
+// src/assets/Components/Forms/Form1.jsx
 import React, { useState, useEffect } from 'react';
 import { TextField, Button, Grid, Container, Typography, Card, CardContent, MenuItem } from '@mui/material';
 import BookIcon from '@mui/icons-material/Book';
@@ -46,7 +47,16 @@ const ReservationForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const message = `Name: ${formData.name}%0AAddress: ${formData.address}%0ANIC: ${formData.nic}%0APassport Number: ${formData.passportNumber}%0ANationality: ${formData.nationality}%0ACountry Code: ${formData.countryCode}%0AMobile Number: ${formData.mobileNumber}%0ARoom Category: ${formData.roomCategory}%0AMeal Plan: ${formData.mealPlan}%0AAdults: ${formData.adults}%0AChildren: ${formData.children}%0ACheck-in Date: ${formData.checkinDate}%0ACheck-out Date: ${formData.checkoutDate}%0ASelected Rooms: ${JSON.stringify(formData.selectedRooms)}`;
+        const reservationDetails = JSON.parse(localStorage.getItem('reservationDetails'));
+        let selectedRoomsDetails = '';
+        reservationDetails.selectedRooms.forEach((room, index) => {
+            selectedRoomsDetails += `Type: ${room.type}%0ASelected Type: ${room.selectedType}%0ASelected Persons: ${room.selectedPersons}%0A`;
+            if (index < reservationDetails.selectedRooms.length - 1) {
+                selectedRoomsDetails += '%0A'; // Add a new line between room details
+            }
+        });
+
+        const message = `Name: ${formData.name}%0AAddress: ${formData.address}%0ANIC: ${formData.nic}%0APassport Number: ${formData.passportNumber}%0ANationality: ${formData.nationality}%0ACountry Code: ${formData.countryCode}%0AMobile Number: ${formData.mobileNumber}%0ARoom Category: ${formData.roomCategory}%0AMeal Plan: ${formData.mealPlan}%0AAdults: ${formData.adults}%0AChildren: ${formData.children}%0ACheck-in Date: ${formData.checkinDate}%0ACheck-out Date: ${formData.checkoutDate}%0ASelected Rooms:%0A${selectedRoomsDetails}`;
         const whatsappUrl = `https://wa.me/94716520690?text=${message}`;
         window.location.href = whatsappUrl;
     };
@@ -60,7 +70,7 @@ const ReservationForm = () => {
                     </Typography>
                     <form onSubmit={handleSubmit}>
                         <Grid container spacing={3}>
-                            <Grid item xs={12}>
+                            <Grid item xs={6}>
                                 <TextField
                                     fullWidth
                                     label="Name"
@@ -70,7 +80,7 @@ const ReservationForm = () => {
                                     required
                                 />
                             </Grid>
-                            <Grid item xs={12}>
+                            <Grid item xs={6}>
                                 <TextField
                                     fullWidth
                                     label="Address"
@@ -80,7 +90,7 @@ const ReservationForm = () => {
                                     required
                                 />
                             </Grid>
-                            <Grid item xs={12}>
+                            <Grid item xs={6}>
                                 <TextField
                                     fullWidth
                                     select
@@ -95,7 +105,7 @@ const ReservationForm = () => {
                                 </TextField>
                             </Grid>
                             {formData.nationality === 'Sri Lanka' ? (
-                                <Grid item xs={12}>
+                                <Grid item xs={6}>
                                     <TextField
                                         fullWidth
                                         label="NIC"
@@ -106,7 +116,7 @@ const ReservationForm = () => {
                                     />
                                 </Grid>
                             ) : (
-                                <Grid item xs={12}>
+                                <Grid item xs={6}>
                                     <TextField
                                         fullWidth
                                         label="Passport Number"
@@ -117,7 +127,7 @@ const ReservationForm = () => {
                                     />
                                 </Grid>
                             )}
-                            <Grid item xs={12}>
+                            <Grid item xs={6}>
                                 <TextField
                                     fullWidth
                                     label="Country Code"
@@ -127,7 +137,7 @@ const ReservationForm = () => {
                                     required
                                 />
                             </Grid>
-                            <Grid item xs={12}>
+                            <Grid item xs={6}>
                                 <TextField
                                     fullWidth
                                     label="Mobile Number"
@@ -135,6 +145,34 @@ const ReservationForm = () => {
                                     value={formData.mobileNumber}
                                     onChange={handleChange}
                                     required
+                                />
+                            </Grid>
+                            <Grid item xs={6}>
+                                <TextField
+                                    fullWidth
+                                    label="Check-in Date"
+                                    name="checkinDate"
+                                    type="date"
+                                    value={formData.checkinDate}
+                                    onChange={handleChange}
+                                    required
+                                    InputLabelProps={{
+                                        shrink: true,
+                                    }}
+                                />
+                            </Grid>
+                            <Grid item xs={6}>
+                                <TextField
+                                    fullWidth
+                                    label="Check-out Date"
+                                    name="checkoutDate"
+                                    type="date"
+                                    value={formData.checkoutDate}
+                                    onChange={handleChange}
+                                    required
+                                    InputLabelProps={{
+                                        shrink: true,
+                                    }}
                                 />
                             </Grid>
                             <Grid item xs={12}>
