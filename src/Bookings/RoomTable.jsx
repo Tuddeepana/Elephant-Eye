@@ -52,8 +52,16 @@ const RoomTable = () => {
   };
 
   const handleProceed = () => {
-    console.log("Selected Room Options:", selectedRooms);
-    window.alert("Reservation Successfull")
+    const roomDetails = selectedRooms.map((room) => ({
+      type: room.type,
+      selectedType: room.selectedType === "roomOnly" ? "Room Only" : "Bed and Breakfast",
+      selectedPersons: room.selectedPersons,
+      selectedRooms: room.selectedRooms,
+      totalPrice: room.totalPrice.toFixed(2),
+    }));
+    
+    console.log("Selected Room Options:", roomDetails);
+    window.alert("Reservation Successful");
     setSelectedRooms([]);
   };
 
