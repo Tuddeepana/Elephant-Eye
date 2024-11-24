@@ -4,7 +4,7 @@ import { TextField, Button, Box, Typography, IconButton, InputAdornment, Circula
 import { LockOutlined, Visibility, VisibilityOff } from '@mui/icons-material';
 import { styled } from '@mui/system';
 import { useNavigate } from 'react-router-dom';
-import Bg from '../../../assets/img/gif/logingif.gif';
+import Bg from '../../../assets/img/common/common.jpg';
 
 const StyledBox = styled(Box)`
     padding: 2rem;

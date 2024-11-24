@@ -26,6 +26,14 @@ const ReservationForm = () => {
             checkinDate: today,
             checkoutDate: today
         }));
+
+        const reservationDetails = JSON.parse(localStorage.getItem('reservationDetails'));
+        if (reservationDetails) {
+            setFormData((prevFormData) => ({
+                ...prevFormData,
+                ...reservationDetails
+            }));
+        }
     }, []);
 
     const handleChange = (e) => {
@@ -38,7 +46,7 @@ const ReservationForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const message = `Name: ${formData.name}%0AAddress: ${formData.address}%0ANIC: ${formData.nic}%0APassport Number: ${formData.passportNumber}%0ANationality: ${formData.nationality}%0ACountry Code: ${formData.countryCode}%0AMobile Number: ${formData.mobileNumber}%0ARoom Category: ${formData.roomCategory}%0AMeal Plan: ${formData.mealPlan}%0AAdults: ${formData.adults}%0AChildren: ${formData.children}%0ACheck-in Date: ${formData.checkinDate}%0ACheck-out Date: ${formData.checkoutDate}`;
+        const message = `Name: ${formData.name}%0AAddress: ${formData.address}%0ANIC: ${formData.nic}%0APassport Number: ${formData.passportNumber}%0ANationality: ${formData.nationality}%0ACountry Code: ${formData.countryCode}%0AMobile Number: ${formData.mobileNumber}%0ARoom Category: ${formData.roomCategory}%0AMeal Plan: ${formData.mealPlan}%0AAdults: ${formData.adults}%0AChildren: ${formData.children}%0ACheck-in Date: ${formData.checkinDate}%0ACheck-out Date: ${formData.checkoutDate}%0ASelected Rooms: ${JSON.stringify(formData.selectedRooms)}`;
         const whatsappUrl = `https://wa.me/94716520690?text=${message}`;
         window.location.href = whatsappUrl;
     };
@@ -129,8 +137,6 @@ const ReservationForm = () => {
                                     required
                                 />
                             </Grid>
-
-
                             <Grid item xs={12}>
                                 <Button
                                     type="submit"
