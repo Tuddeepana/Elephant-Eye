@@ -1,14 +1,15 @@
-import RoomTable from "./Bookings/RoomTable.jsx";
-import Router from "./router/Router.jsx";
- 
-function App() {
+import React, { Suspense, lazy } from 'react';
 
+const Router = lazy(() => import('./router/Router.jsx'));
+
+function App() {
 
   return (
     <>
       <div>
-          <Router/>
-
+        <Suspense fallback={<div></div>}>
+          <Router />
+        </Suspense>
       </div>
     </>
   )
