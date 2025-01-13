@@ -116,11 +116,11 @@ const Footer = () => {
                             <div className="sm:flex sm:items-center sm:justify-start sm:space-x-8">
                                 {/* Social Media Icons */}
                             </div>
-                            <p className="mt-6 text-sm text-white font-semibold lg:mt-0 text-center">All copyrights reserved by Elephant Eye- © 2024 All Rights Reserved.</p>
                         </div>
                     </div>
                 </div>
-                <br></br>
+                <br />
+                <p className="mt-6 text-sm text-white font-semibold lg:mt-0 text-center">All copyrights reserved by Elephant Eye- © 2024 All Rights Reserved.</p>
                 <p className="mt-6 text-sm text-white font-semibold lg:mt-0 text-center">
                     Website Designed & Developed by{' '}
                     <a
