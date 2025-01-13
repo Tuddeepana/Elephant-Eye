@@ -203,6 +203,7 @@ const Home = () => {
                     </div>
 
                     <div className="mt-24">
+                        hello world
                         <HomeCover/>
                     </div>
 
