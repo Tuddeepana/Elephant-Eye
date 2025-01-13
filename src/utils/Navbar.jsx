@@ -1,6 +1,6 @@
 // src/utils/Navbar.jsx
-import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from 'react-router-dom';
+import React, {useEffect, useState} from "react";
+import {Link, useNavigate} from 'react-router-dom';
 import hotel_logo from "../assets/img/common/hotel_logo.png";
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
@@ -47,23 +47,25 @@ const Navbar = () => {
                 <div className="max-w-7xl mx-auto flex justify-between items-center">
                     <button onClick={toggleMenu} className="lg:hidden p-2 focus:outline-none">
                         {isOpen ? (
-                            <CloseIcon fontSize="large" className="text-slate-500" />
+                            <CloseIcon fontSize="large" className="text-slate-500"/>
                         ) : (
-                            <MenuIcon fontSize="large" className="text-slate-500" />
+                            <MenuIcon fontSize="large" className="text-slate-500"/>
                         )}
                     </button>
 
                     <div className={`hidden lg:flex space-x-6`}>
-                        <Link to="/" className={getLinkClass("/")}>Home</Link>
                         <Link to="/rooms" className={getLinkClass("/rooms")}>Rooms</Link>
+                        <Link to="/gallery" className={getLinkClass("/gallery")}>Gallery</Link>
                     </div>
 
                     <div className="flex-1 flex justify-center">
-                        <img src={hotel_logo} alt="Hotel Logo" className="h-18 w-44" />
+                        <Link to="/" className={getLinkClass("/")}>
+                            <img src={hotel_logo} alt="Hotel Logo" className="h-18 w-44"/>
+                        </Link>
                     </div>
 
                     <div className={`hidden lg:flex space-x-6 items-center`}>
-                        <Link to="/gallery" className={getLinkClass("/gallery")}>Gallery</Link>
+
                         <Link to="/aboutus" className={getLinkClass("/aboutus")}>About us</Link>
                         <button
                             onClick={handleModalOpen}
@@ -93,7 +95,7 @@ const Navbar = () => {
                 )}
             </nav>
 
-            <BookingModal open={isModalOpen} handleClose={handleModalClose} />
+            <BookingModal open={isModalOpen} handleClose={handleModalClose}/>
         </>
     );
 };

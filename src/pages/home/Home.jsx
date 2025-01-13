@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, {useEffect, useState} from "react";
 import Footer from "../../utils/Footer.jsx";
 import LandingPage from "../../assets/subPages/LandingPage.jsx";
-import HomeCover from "../../assets/subPages/HomeCover.jsx";
 import Card from "../../assets/Components/Cards/Card1/Card.jsx";
 import CenteredLine from "../../assets/Components/Divider/CenteredLine.jsx";
 import "slick-carousel/slick/slick.css";
@@ -23,16 +22,16 @@ import Ridiyagama from '../../assets/img/cardImages/ridiyagama.jpg';
 import Kururlu from '../../assets/img/cardImages/kururlu.jpg';
 import Dry from '../../assets/img/cardImages/Dry.jpg';
 import Ridi from '../../assets/img/cardImages/ridi.jpg';
-import Offer from '../../assets/img/common/Offer.jpg';
 
 import '../../style/main.css';
 import RoomCategories from "../../assets/subPages/RoomCategories.jsx";
 
-const Popup = ({ imageUrl, onClose, isMinimized, onMinimize, isVisible }) => (
-    <div className={`popup-overlay ${isMinimized ? "minimized" : ""} ${!isVisible ? "popup-hidden" : ""}`} onClick={onMinimize}>
+const Popup = ({imageUrl, onClose, isMinimized, onMinimize, isVisible}) => (
+    <div className={`popup-overlay ${isMinimized ? "minimized" : ""} ${!isVisible ? "popup-hidden" : ""}`}
+         onClick={onMinimize}>
         <div className="popup-content" onClick={(e) => e.stopPropagation()}>
             <span className="close-icon" onClick={onClose}>&times;</span>
-            <img src={imageUrl} alt="Popup" className="popup-image" />
+            <img src={imageUrl} alt="Popup" className="popup-image"/>
         </div>
     </div>
 );
@@ -66,6 +65,10 @@ const Home = () => {
     const handleTogglePopup = () => {
         setIsMinimized(false);
         setIsPopupVisible(true);
+    };
+
+    const handleModalOpen = () => {
+        navigate('/roomtable');
     };
 
     const settings = {
@@ -172,7 +175,7 @@ const Home = () => {
     return (
         <>
             <div className="overflow-hidden">
-                <LandingPage />
+                <LandingPage/>
             </div>
             {/*{isPopupVisible && (*/}
             {/*    <Popup*/}
@@ -194,17 +197,12 @@ const Home = () => {
                             Experience a perfect blend of adventure and relaxation for an unforgettable stay immersed in
                             culture and tranquility.
                         </p>
-                        <h1 className="text-center text-3xl mt-16 font-bold" style={{color: '#2a2a2a'}}>-Why Book Direct
-                            with us-</h1>
-                        <p className="text-center max-w-2xl mt-4 text-xl font-semibold">
-                            Through Book with us get Discount
-                        </p>
 
                     </div>
 
-                    <div className="mt-24">
-                        <HomeCover/>
-                    </div>
+                    {/*<div className="mt-24">*/}
+                    {/*    <HomeCover/>*/}
+                    {/*</div>*/}
 
                     <h1 className="text-center text-7xl mt-24 font-bold" style={{color: '#2a2a2a'}}>Trunk Cafe And
                         Restaurant</h1>
@@ -236,9 +234,25 @@ const Home = () => {
                             </div>
                         </div>
                     </div>
-                    <RoomCategories />
 
-                    <h1 className="text-center text-7xl mt-24 font-bold" style={{ color: '#2a2a2a' }}>Conventional Location</h1>
+
+                    <RoomCategories/>
+                    <div className="flex flex-col justify-center items-center pt-14 gap-3">
+                        <h1 className="text-center text-3xl font-bold" style={{color: '#2a2a2a'}}>-Why Book Direct
+                            with us-</h1>
+                        <p className="text-center max-w-2xl text-xl font-semibold">
+                            Through Book with us get Discount
+                        </p>
+                        <button
+                            onClick={handleModalOpen}
+                            className="px-10 py-2 bg-[#0e6a11] text-white font-semibold rounded hover:bg-[#0c5a0e]"
+                        >
+                            Book Now
+                        </button>
+                    </div>
+
+                    <h1 className="text-center text-7xl mt-24 font-bold" style={{color: '#2a2a2a'}}>Conventional
+                        Location</h1>
                     <div className="mt-8 flex justify-center w-full overflow-hidden">
                         <div className="w-full max-w-full md:max-w-6xl">
                             <div className="block md:hidden">
@@ -265,25 +279,25 @@ const Home = () => {
                                     />
                                 ))}
                             </div>
-                            <CenteredLine />
+                            <CenteredLine/>
                         </div>
                     </div>
 
                     <div className='mt-24'>
-                        <Reviews />
+                        <Reviews/>
                     </div>
                 </div>
 
-                <Footer />
+                <Footer/>
 
                 <a
                     href="https://wa.me/+94707676750"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="fixed bottom-4 right-4 bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition-all duration-300"
-                    style={{ maxWidth: 'calc(100% - 16px)' }}
+                    style={{maxWidth: 'calc(100% - 16px)'}}
                 >
-                    <WhatsAppIcon />
+                    <WhatsAppIcon/>
                 </a>
             </div>
             {active === 1 && isMinimized && isMinimizedVisible && (
