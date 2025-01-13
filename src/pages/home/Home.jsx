@@ -174,15 +174,15 @@ const Home = () => {
             <div className="overflow-hidden">
                 <LandingPage />
             </div>
-            {isPopupVisible && (
-                <Popup
-                    imageUrl={Offer}
-                    onClose={handleClosePopup}
-                    isMinimized={isMinimized}
-                    onMinimize={handleMinimizePopup}
-                    isVisible={isMinimizedVisible}
-                />
-            )}
+            {/*{isPopupVisible && (*/}
+            {/*    <Popup*/}
+            {/*        imageUrl={Offer}*/}
+            {/*        onClose={handleClosePopup}*/}
+            {/*        isMinimized={isMinimized}*/}
+            {/*        onMinimize={handleMinimizePopup}*/}
+            {/*        isVisible={isMinimizedVisible}*/}
+            {/*    />*/}
+            {/*)}*/}
 
             <div className={isPopupVisible && !isMinimized ? "blur-background" : ""}>
                 <div className="overflow-hidden">
@@ -203,7 +203,6 @@ const Home = () => {
                     </div>
 
                     <div className="mt-24">
-                        hello world
                         <HomeCover/>
                     </div>
 
