@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
 import dayjs from "dayjs";
-import room from "../img/Lndpg_Imgs/Hero Section 1.webp";
-import beach from "../img/Lndpg_Imgs/Hero section 2.webp";
-import property from "../img/Lndpg_Imgs/h3.webp"; // Correctly import the property image
+import room from "../../../public/images/heroSectionImages/Hero_Section_1.webp";
+import beach from "../../../public/images/heroSectionImages/Hero_Section_2.webp";
+import property from "../../../public/images/heroSectionImages/Hero_Section_3.webp";
 
 const images = [room, beach, property]; // Add property image to the array
 const nationalityOptions = ["Nationality", "Sri Lankan", "Non Sri Lankan"];
@@ -63,6 +63,7 @@ const Slideshow = () => {
                     />
                 ))}
             </div>
+
         </div>
     );
 };

@@ -8,6 +8,10 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
+// Importing sections
+import Home_Hero from "./sections/Home_Hero.jsx";
+
+
 import Reviews from "../../assets/subPages/Reviews.jsx";
 import Chinees from "../../assets/img/cardImages/chinese.jpg";
 import Srilanka from '../../assets/img/cardImages/srilanka.jpg';
@@ -176,7 +180,7 @@ const Home = () => {
     return (
         <>
             <div className="overflow-hidden">
-                <LandingPage/>
+                <Home_Hero />
             </div>
             {/*{isPopupVisible && (*/}
             {/*    <Popup*/}
@@ -190,16 +194,7 @@ const Home = () => {
 
             <div className={isPopupVisible && !isMinimized ? "blur-background" : ""}>
                 <div className="overflow-hidden">
-                    <div className="flex flex-col items-center justify-center px-4">
-                        <h1 className="text-center text-8xl mt-24 font-bold" style={{color: '#2a2a2a'}}>Elephant
-                            Eye</h1>
-                        <p className="mt-6 font-semibold text-base">Where Tranquility Embraces Elegance!</p>
-                        <p className="text-center max-w-2xl mt-4 text-xl font-semibold">
-                            Experience a perfect blend of adventure and relaxation for an unforgettable stay immersed in
-                            culture and tranquility.
-                        </p>
 
-                    </div>
 
                     {/*<div className="mt-24">*/}
                     {/*    <HomeCover/>*/}

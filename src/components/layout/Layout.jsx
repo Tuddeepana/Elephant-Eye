@@ -4,7 +4,7 @@ import Footer from "./Footer.jsx";
 
 const Layout = ({ children }) => {
     return (
-        <div className="">
+        <div className="overflow-x-hidden">
             <Navbar />
             {children}
             <Footer />
