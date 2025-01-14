@@ -1,10 +1,10 @@
 // src/utils/Navbar.jsx
 import React, {useEffect, useState} from "react";
 import {Link, useNavigate} from 'react-router-dom';
-import hotel_logo from "../assets/img/common/hotel_logo.png";
+import hotel_logo from "../../assets/img/common/hotel_logo.png";
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
-import BookingModal from '../assets/Components/modal/BookingModal..jsx';
+import BookingModal from '../../assets/Components/modal/BookingModal..jsx';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);

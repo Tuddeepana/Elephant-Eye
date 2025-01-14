@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import Footer from "../../utils/Footer.jsx";
+import Footer from "../../components/layout/Footer.jsx";
 import LandingPage from "../../assets/subPages/LandingPage.jsx";
 import Card from "../../assets/Components/Cards/Card1/Card.jsx";
 import CenteredLine from "../../assets/Components/Divider/CenteredLine.jsx";
@@ -25,6 +25,7 @@ import Ridi from '../../assets/img/cardImages/ridi.jpg';
 
 import '../../style/main.css';
 import RoomCategories from "../../assets/subPages/RoomCategories.jsx";
+import Offer from "../admin/menu/Offer.jsx";
 
 const Popup = ({imageUrl, onClose, isMinimized, onMinimize, isVisible}) => (
     <div className={`popup-overlay ${isMinimized ? "minimized" : ""} ${!isVisible ? "popup-hidden" : ""}`}
@@ -287,9 +288,6 @@ const Home = () => {
                         <Reviews/>
                     </div>
                 </div>
-
-                <Footer/>
-
                 <a
                     href="https://wa.me/+94707676750"
                     target="_blank"

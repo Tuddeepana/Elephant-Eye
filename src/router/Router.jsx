@@ -15,17 +15,19 @@ const Form = lazy(() => import('../assets/Components/Forms/Form1.jsx'));
 const Offer = lazy(() => import('../pages/admin/menu/Offer.jsx'));
 const RoomTable = lazy(() => import('../Bookings/RoomTable.jsx'));
 
+import Layout from "../components/layout/Layout.jsx";
+
 function AppRouter() {
   return (
     <Router>
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/rooms" element={<Rooms />} />
+            <Route path="/" element={<Layout><Home /></Layout>} />
+            <Route path="/gallery" element={<Layout><Gallery /></Layout>} />
+            <Route path="/rooms" element={<Layout><Rooms /></Layout>} />
           <Route path="/book" element={<Form />} />
-          <Route path="/roomtable" element={<RoomTable />} />
-          <Route path="/aboutus" element={<Aboutus />} />
+            <Route path="/roomtable" element={<Layout><RoomTable /></Layout>} />
+            <Route path="/aboutus" element={<Layout><Aboutus /></Layout>} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/book" element={<Book />} />
           <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />

@@ -3,8 +3,8 @@ import { FaBed, FaUsers, FaDollarSign, FaCheckCircle } from "react-icons/fa";
 import { MdOutlineDelete } from "react-icons/md";
 import { roomData } from "./roomData"; // Assuming roomData is in a separate file
 import { useNavigate } from "react-router-dom";
-import Navbar from "../utils/Navbar.jsx";
-import Footer from "../utils/Footer.jsx"; // Import useNavigate
+import Navbar from "../components/layout/Navbar.jsx";
+import Footer from "../components/layout/Footer.jsx"; // Import useNavigate
 
 const RoomTable = () => {
   const today = new Date().toISOString().split("T")[0];
@@ -238,7 +238,7 @@ const RoomTable = () => {
             )}
           </div>
         </div>
-        <Footer />
+        {/*<Footer />*/}
       </div>
   );
 };

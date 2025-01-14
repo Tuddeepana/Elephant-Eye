@@ -8,7 +8,7 @@ import Img3 from "../../assets/img/gallery/rooms/double.jpg"; // New image impor
 import Img4 from "../../assets/img/gallery/rooms/Twin.jpg";
 
 import LandingPage from "../../assets/subPages/LandingPage.jsx";
-import Footer from "../../utils/Footer.jsx";
+import Footer from "../../components/layout/Footer.jsx";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import { FaRulerCombined, FaUserFriends } from "react-icons/fa";
 
@@ -125,9 +125,9 @@ const Rooms = () => {
             </a>
 
             {/* Footer */}
-            <div className="mt-24">
-                <Footer />
-            </div>
+            {/*<div className="mt-24">*/}
+            {/*    <Footer />*/}
+            {/*</div>*/}
         </div>
     );
 };

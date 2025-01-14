@@ -1,8 +1,8 @@
-import FooterImage from '../assets/img/common/footerb.jpg';
+import FooterImage from '../../assets/img/common/footerb.jpg';
 
 const Footer = () => {
     return (
-        <div>
+        <div className="mt-14">
             <section
                 className="py-10 bg-blue-900 sm:pt-16 lg:pt-24"
                 style={{ backgroundImage: `url(${FooterImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
@@ -12,7 +12,7 @@ const Footer = () => {
                         <div>
                             <ul className="mt-8 space-y-4">
                                 <li>
-                                    <a href="/" title=""
+                                    <a href="/public" title=""
                                        className="text-white font-semibold transition-all duration-200 hover:text-white focus:text-white"> Home </a>
                                 </li>
                                 <li>

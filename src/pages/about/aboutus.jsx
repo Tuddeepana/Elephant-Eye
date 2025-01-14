@@ -1,6 +1,6 @@
 import LandingPage from "../../assets/subPages/LandingPage.jsx";
 import React from "react";
-import Footer from "../../utils/Footer.jsx";
+import Footer from "../../components/layout/Footer.jsx";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -78,9 +78,9 @@ function AboutUs() {
             </div>
 
             {/* Footer */}
-            <div className="mt-2.5 ">
-                <Footer />
-            </div>
+            {/*<div className="mt-2.5 ">*/}
+            {/*    <Footer />*/}
+            {/*</div>*/}
 
             {/* WhatsApp Floating Button */}
             <a

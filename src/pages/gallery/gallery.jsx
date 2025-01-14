@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid, Card, CardMedia, CardContent, Typography } from '@mui/material';
 import image1 from '../../assets/img/cardImages/Bundala.jpg';
 import LandingPage from "../../assets/subPages/LandingPage.jsx";
-import Footer from "../../utils/Footer.jsx";
+import Footer from "../../components/layout/Footer.jsx";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import './gallery.css';
 
@@ -156,9 +156,9 @@ const Gallery = () => {
             </div>
 
             {/* Footer Section */}
-            <div className="w-full mt-12">
-                <Footer />
-            </div>
+            {/*<div className="w-full mt-12">*/}
+            {/*    <Footer />*/}
+            {/*</div>*/}
 
             {/* WhatsApp Floating Button */}
             <a
