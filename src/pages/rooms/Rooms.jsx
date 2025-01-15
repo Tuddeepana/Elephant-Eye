@@ -56,7 +56,7 @@ const Rooms = () => {
 
     return (
         <div className="overflow-x-hidden">
-            <LandingPage />
+            {/*<LandingPage />*/}
 
             {/* Header Section */}
             <div className="flex flex-col items-center justify-center px-4">

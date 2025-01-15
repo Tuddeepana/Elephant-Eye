@@ -117,7 +117,7 @@ const images = [
 const Gallery = () => {
     return (
         <div className="w-full min-h-screen overflow-x-hidden">
-            <LandingPage />
+            {/*<LandingPage />*/}
             
             {/* Header Section */}
             <div className="flex flex-col items-center justify-center w-full">

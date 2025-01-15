@@ -12,7 +12,7 @@ import Visiting from "../../assets/pdf/Visiting card.pdf";
 function AboutUs() {
     return (
         <div className="overflow-x-hidden max-w-screen">
-            <LandingPage />
+            {/*<LandingPage />*/}
 
             {/* About Us Header Section */}
             <div className="flex flex-col items-center justify-center px-4 max-w-full">
