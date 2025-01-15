@@ -1,6 +1,4 @@
 import React, {useEffect, useState} from "react";
-import Footer from "../../components/layout/Footer.jsx";
-import LandingPage from "../../assets/subPages/LandingPage.jsx";
 import Card from "../../assets/Components/Cards/Card1/Card.jsx";
 import CenteredLine from "../../assets/Components/Divider/CenteredLine.jsx";
 import "slick-carousel/slick/slick.css";
@@ -29,7 +27,6 @@ import Ridi from '../../assets/img/cardImages/ridi.jpg';
 
 import '../../style/main.css';
 import RoomCategories from "../../assets/subPages/RoomCategories.jsx";
-import Offer from "../admin/menu/Offer.jsx";
 
 const Popup = ({imageUrl, onClose, isMinimized, onMinimize, isVisible}) => (
     <div className={`popup-overlay ${isMinimized ? "minimized" : ""} ${!isVisible ? "popup-hidden" : ""}`}
@@ -179,9 +176,8 @@ const Home = () => {
 
     return (
         <>
-            <div className="overflow-hidden">
-                <Home_Hero />
-            </div>
+            <Home_Hero/>
+
             {/*{isPopupVisible && (*/}
             {/*    <Popup*/}
             {/*        imageUrl={Offer}*/}
@@ -194,30 +190,11 @@ const Home = () => {
 
             <div className={isPopupVisible && !isMinimized ? "blur-background" : ""}>
                 <div className="overflow-hidden">
-
-
-                    {/*<div className="mt-24">*/}
-                    {/*    <HomeCover/>*/}
-                    {/*</div>*/}
-
                     <h1 className="text-center text-7xl mt-24 font-bold" style={{color: '#2a2a2a'}}>Trunk Cafe And
                         Restaurant</h1>
                     <div className="mt-8 flex justify-center w-full overflow-hidden">
                         <div className="w-full max-w-full md:max-w-6xl">
-                            <div className="block md:hidden">
-                                <Slider {...settings}>
-                                    {unbeatableOffers.map((slide, index) => (
-                                        <Card
-                                            key={index}
-                                            imageUrl={slide.imageUrl}
-                                            title={slide.title}
-                                            location={slide.location}
-                                            description={slide.description}
-                                        />
-                                    ))}
-                                </Slider>
-                            </div>
-                            <div className="hidden md:flex justify-between space-x-4">
+                            <div className="flex justify-between space-x-4">
                                 {unbeatableOffers.map((slide, index) => (
                                     <Card
                                         key={index}
@@ -231,10 +208,10 @@ const Home = () => {
                         </div>
                     </div>
 
-
                     <RoomCategories/>
+
                     <div className="flex flex-col justify-center items-center pt-14 gap-3">
-                        <h1 className="text-center text-3xl font-bold" style={{color: '#2a2a2a'}}>-Why Book Direct
+                        <h1 className="text-center text-3xl font-bold text-[#2a2a2a]">-Why Book Direct
                             with us-</h1>
                         <p className="text-center max-w-2xl text-xl font-semibold">
                             Through Book with us get Discount
@@ -247,24 +224,11 @@ const Home = () => {
                         </button>
                     </div>
 
-                    <h1 className="text-center text-7xl mt-24 font-bold" style={{color: '#2a2a2a'}}>Conventional
+                    <h1 className="text-center text-7xl mt-24 font-bold text-[#2a2a2a]">Conventional
                         Location</h1>
                     <div className="mt-8 flex justify-center w-full overflow-hidden">
                         <div className="w-full max-w-full md:max-w-6xl">
-                            <div className="block md:hidden">
-                                <Slider {...settings}>
-                                    {slides.map((slide, index) => (
-                                        <Card
-                                            key={index}
-                                            imageUrl={slide.imageUrl}
-                                            title={slide.title}
-                                            location={slide.location}
-                                            description={slide.description}
-                                        />
-                                    ))}
-                                </Slider>
-                            </div>
-                            <div className="hidden md:grid grid-cols-3 gap-4">
+                            <div className="grid grid-cols-3 gap-4">
                                 {slides.map((slide, index) => (
                                     <Card
                                         key={index}
@@ -275,7 +239,6 @@ const Home = () => {
                                     />
                                 ))}
                             </div>
-                            <CenteredLine/>
                         </div>
                     </div>
 
